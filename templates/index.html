@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Paiva e Corrêa | Advogados Associados</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #0F1C2E;
+            --accent-gold: #C5A059;
+            --text-dark: #2A2A2A;
+            --bg-light: #F8F9FA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Top Bar & Nav */
+        .top-bar {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            padding: 8px 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .alert-bar {
+            background-color: #8B0000;
+            color: white;
+            padding: 6px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Seção Equipe (Estilo Adaptado da Imagem) */
+        .equipe-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-navy);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lawyer-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        /* Inversão para a segunda advogada */
+        .lawyer-card.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .lawyer-photo {
+            width: 45%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .lawyer-info {
+            width: 60%;
+            background-color: var(--primary-navy);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 2px;
+            z-index: 2;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Sobreposição sutil entre a foto e o card */
+        .lawyer-card:not(.reverse) .lawyer-info {
+            margin-left: -5%;
+        }
+
+        .lawyer-card.reverse .lawyer-info {
+            margin-right: -5%;
+        }
+
+        .lawyer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .lawyer-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .linkedin-icon {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+
+        .lawyer-email {
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: block;
+            text-decoration: none;
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 10px;
+        }
+
+        .lawyer-bio {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #D1D5DB;
+            margin-bottom: 25px;
+        }
+
+        .lawyer-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            background: transparent;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-navy);
+        }
+
+        /* Footer com novo endereço */
+        footer {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            padding: 40px 5% 20px;
+            margin-top: 80px;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h4 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #CCCCCC;
+        }
+
+        /* Responsividade básica */
+        @media (max-width: 768px) {
+            .lawyer-card, .lawyer-card.reverse {
+                flex-direction: column;
+            }
+            .lawyer-photo, .lawyer-info {
+                width: 100%;
+            }
+            .lawyer-card:not(.reverse) .lawyer-info,
+            .lawyer-card.reverse .lawyer-info {
+                margin: -30px 0 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Security Alert Bar -->
+    <div class="top-alert" id="securityAlert">
+        <div class="container alert-container">
+            <div class="alert-content">
+                <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
+                <span><strong>ALERTA DE SEGURANÇA:</strong> Não entramos em contato pelo WhatsApp ou telefone solicitando dados bancários ou transferências financeiras. Fale conosco apenas pelos canais oficiais do escritório <strong>Paiva e Corrêa Advogados</strong>.</span>
+            </div>
+            <button class="alert-close" onclick="closeAlert()">&times;</button>
+        </div>
+    </div>
+
+    <!-- Top Contact Header -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-info">
+                <a href="tel:1130590910"><i class="fa-solid fa-phone"></i> (11) 3059-0910</a>
+                <a href="mailto:contato@paivaecorrea.com.br"><i class="fa-solid fa-envelope"></i> contato@paivaecorrea.com.br</a>
+            </div>
+            <div class="top-social">
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header / Navigation -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-mark">PC</div>
+                <div class="logo-text">
+                    <span class="brand-name">PAIVA E CORRÊA</span>
+                    <span class="brand-sub">ADVOGADOS ASSOCIADOS</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#sobre">Escritório</a></li>
+                    <li><a href="#atuacao">Atuação</a></li>
+                    <li><a href="#equipe">Equipe</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-btn" id="searchBtn" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <!-- Search Bar Drawer -->
+        <div class="search-drawer" id="searchDrawer">
+            <div class="container search-drawer-inner">
+                <input type="text" placeholder="Digite o que procura e pressione Enter...">
+                <button class="search-close" id="searchClose">&times;</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">Desde 1992</span>
+                <h1>Excelência Jurídica & Soluções Estratégicas</h1>
+                <p>Atuação nas principais áreas do direito, prestando assessoria consultiva e contenciosa de alta precisão para pessoas jurídicas e físicas.</p>
+                <div class="hero-btns">
+                    <a href="#sobre" class="btn btn-primary">Saiba Mais</a>
+                    <a href="#contato" class="btn btn-outline">Fale Conosco</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Escritório Paiva e Corrêa">
+                <div class="about-experience-badge">
+                    <span class="years">+30</span>
+                    <span class="label">Anos de Tradição e Inovação</span>
+                </div>
+            </div>
+            <div class="about-text">
+                <span class="section-subtitle">Sobre Paiva e Corrêa</span>
+                <h2>Tradição, Agilidade e Eficiência Jurídica</h2>
+                <p>O escritório <strong>Paiva e Corrêa Advogados</strong> foi constituído em 1992, com o objetivo de prestar serviços jurídicos de forma rápida, eficaz e personalizada, com maior ênfase para empresas dos mais variados ramos de atividade econômica (indústria, comércio e serviços), compreendendo a atuação em diversas áreas, tanto na esfera consultiva quanto na contenciosa.</p>
+                <p>Sediado em São Paulo, possuímos filial no Rio de Janeiro e escritórios correspondentes nas principais capitais e cidades dos demais estados do Brasil.</p>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <div>
+                            <h4>Atuação Consultiva & Contenciosa</h4>
+                            <p>Prevenção de litígios e defesa estratégica em todas as instâncias.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-building-user"></i>
+                        <div>
+                            <h4>Atendimento Personalizado</h4>
+                            <p>Compreensão profunda do negócio do cliente para gerar resultados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas Section -->
+    <section class="services" id="atuacao">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Como Podemos Te Ajudar</span>
+                <h2>Áreas de Atuação</h2>
+                <div class="header-divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card" onclick="openPracticeModal('administrativo')">
+                    <div class="card-icon"><i class="fa-solid fa-landmark"></i></div>
+                    <h3>Administrativo</h3>
+                    <p>Defesa dos interesses do cliente junto a órgãos fiscalizadores, licitações e agências reguladoras.</p>
+                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card" onclick="openPracticeModal('contratual')">
+                    <div class="card-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <h3>Contratual e Societária</h3>
+                    <p>Elaboração de atos societários, M&A, joint-ventures, restruturação e governança corporativa.</p>
+                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card" onclick="openPracticeModal('civel')">
+                    <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
+                    <h3>Cível, Comercial e Consumidor</h3>
+                    <p>Contencioso cível estratégico, compliance, prevenção de riscos e relação com consumidor.</p>
+                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card" onclick="openPracticeModal('constitucional')">
+                    <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3>Constitucional</h3>
+                    <p>Consultoria e questionamento da constitucionalidade de leis em tribunais superiores (STF).</p>
+                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="service-card" onclick="openPracticeModal('trabalhista')">
+                    <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>Trabalhista</h3>
+                    <p>Defesa contenciosa e consultoria preventiva nas relações de trabalho e negociações coletivas.</p>
+                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="service-card" onclick="openPracticeModal('tributaria')">
+                    <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+                    <h3>Tributária</h3>
+                    <p>Planejamento tributário, economia fiscal legal, defesas de autos de infração e execuções fiscais.</p>
+                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="service-card" onclick="openPracticeModal('penal')">
+                    <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Penal Empresarial</h3>
+                    <p>Assistência consultiva e defesa criminal em crimes ambientais, ordem tributária e corporativos.</p>
+                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section (AI Portraits) -->
+    <section class="team" id="equipe">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Nossos Profissionais</span>
+                <h2>Equipe Especializada</h2>
+                <p class="section-desc">Uma equipe selecionada de advogados e especialistas em constante processo de atualização para atender às demandas com agilidade e precisão técnica.</p>
+                <div class="header-divider"></div>
+            </div>
+
+<section class="equipe-container">
+        <h2 class="section-title">Sócias Fundadoras</h2>
+
+        <!-- Card 1: Kamila Paiva -->
+        <div class="lawyer-card">
+            <img src="static/img/kamila.jpeg" alt="Kamila Paiva" class="lawyer-photo">
+            <div class="lawyer-info">
+                <div class="lawyer-header">
+                    <h3 class="lawyer-name">Kamila Paiva</h3>
+                    <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="mailto:kamila@paivaecorrea.com.br" class="lawyer-email">kamila@paivaecorrea.com.br</a>
+                
+                <p class="lawyer-bio">
+                    <strong>Kamila Paiva</strong> é sócia fundadora do Paiva e Corrêa Advogados e advogada com mais de 16 anos de atuação no direito bancário e regulatório financeiro. É membra da Associação dos Advogados de São Paulo (AASP) e da Comissão de Direito Bancário da OAB-SP.<br><br>
+                    Atua no atendimento jurídico a instituições financeiras, instituições de pagamento, empresas e pessoas físicas, da conformidade regulatória a litígios bancários, empresariais, consumeristas e imobiliários.
+                </p>
+
+                <!-- Destaques Formação e Certificações -->
+                <div class="highlight-box">
+                    <h4><i class="fa-solid fa-graduation-cap"></i> Formação Acadêmica</h4>
+                    <ul>
+                        <li>Bacharel em Direito — Universidade Bandeirante de São Paulo</li>
+                        <li>Pós-graduação em Direito e Processo Tributário — Escola Paulista de Direito</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4><i class="fa-solid fa-certificate"></i> Certificações & Cursos Complementares</h4>
+                    <ul class="cert-list">
+                        <li>Governança Regulatória e Cláusulas Contratuais (PUC)</li>
+                        <li>Governança Regulatória, Prevenção a Fraude e Anticorrupção (LEC)</li>
+                        <li>Extensão em Direito de Proteção de Dados (PUC)</li>
+                        <li>Extensão em Direitos Financeiros e Crimes (PUC)</li>
+                        <li>Direito Empresarial e Nova Lei de Falências (PUC)</li>
+                        <li>Propriedade Intelectual para Startups (SEBRAE-SP)</li>
+                        <li>Extensão em Direito de Família e Sucessões (ESA)</li>
+                    </ul>
+                </div>
+
+                <div class="lawyer-buttons">
+                    <a href="mailto:kamila@paivaecorrea.com.br" class="btn-outline"><i class="fa-regular fa-envelope"></i> Entrar em Contato</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Karla Corrêa (Invertido) -->
+        <div class="lawyer-card reverse">
+            <img src="static/img/karla.jpeg" alt="Karla Corrêa" class="lawyer-photo">
+            <div class="lawyer-info">
+                <div class="lawyer-header">
+                    <h3 class="lawyer-name">Karla Corrêa</h3>
+                    <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="mailto:karla@paivaecorrea.com.br" class="lawyer-email">karla@paivaecorrea.com.br</a>
+                
+                <p class="lawyer-bio">
+                    <strong>Karla Corrêa</strong> é sócia fundadora do escritório Paiva e Corrêa Advogados. Graduada em 2009, possui forte expertise prática na condução de causas complexas e consultoria preventiva, unindo visão estratégica jurídica ao desenvolvimento institucional.
+                </p>
+
+                <!-- Destaques Áreas e Especializações -->
+                <div class="highlight-box">
+                    <h4><i class="fa-solid fa-award"></i> Especialização e Pós-Graduação</h4>
+                    <ul>
+                        <li>Especialista em Direito Empresarial e Tributário</li>
+                        <li>Pós-Graduada em Terapia Integrativa: Desenvolvimento Humano como Modelo de Negócio</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4><i class="fa-solid fa-scale-balanced"></i> Áreas Principais de Atuação</h4>
+                    <ul class="cert-list">
+                        <li>Direito de Família</li>
+                        <li>Erro Médico & Saúde</li>
+                        <li>Regularização Imobiliária</li>
+                        <li>Planejamento Patrimonial</li>
+                    </ul>
+                </div>
+
+                <div class="lawyer-buttons">
+                    <a href="mailto:karla@paivaecorrea.com.br" class="btn-outline"><i class="fa-regular fa-envelope"></i> Entrar em Contato</a>
+                </div>
+            </div>
+        </div>
+    </section>      
+   
+</section>
+
+    <!-- Stats / Counter Section -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" data-target="30">0</span><span class="plus">+</span>
+                <p>Anos de Excelência</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="1500">0</span><span class="plus">+</span>
+                <p>Empresas Atendidas</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="98">0</span><span class="plus">%</span>
+                <p>Taxa de Êxito Consultivo</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="50">0</span><span class="plus">+</span>
+                <p>Advogados & Especialistas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us" id="diferenciais">
+        <div class="container why-us-grid">
+            <div class="why-us-content">
+                <span class="section-subtitle">Atendemos às suas necessidades</span>
+                <h2>Por que escolher Paiva e Corrêa?</h2>
+                <p>O escritório atende pequenas, médias e grandes empresas dos mais variados segmentos econômicos: indústrias automobilística, metalúrgica e química, construtoras, gráficas, redes de varejo, tecnologia, logística, restaurantes e associações civis.</p>
+                <p>Os profissionais de <strong>Paiva e Corrêa Advogados</strong> têm como princípio uma atuação personalizada, compreendendo previamente as atividades de seus clientes e os objetivos por eles perseguidos.</p>
+                <p>Tais valores resultam no desenvolvimento de um relacionamento duradouro e próximo com os clientes, que renovam constantemente sua confiança na nossa equipe.</p>
+            </div>
+            <div class="why-us-image">
+                <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80" alt="Reunião Paiva e Corrêa">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section" id="contato">
+        <div class="container contact-grid">
+            <div class="contact-form-wrapper">
+                <h3>Consulte Nossa Equipe</h3>
+                <p>Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
+                <form id="contactForm" class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" required placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp *</label>
+                        <input type="tel" id="telefone" required placeholder="(11) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" required placeholder="seuemail@empresa.com.br">
+                    </div>
+                    <div class="form-group">
+                        <label for="area">Área de Interesse *</label>
+                        <select id="area" required>
+                            <option value="">Selecione a área...</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Contratual e Societária">Contratual e Societária</option>
+                            <option value="Cível, Comercial e Consumidor">Cível, Comercial e Consumidor</option>
+                            <option value="Compliance">Compliance & Governança</option>
+                            <option value="Trabalhista">Trabalhista</option>
+                            <option value="Tributária">Tributária</option>
+                            <option value="Penal Empresarial">Penal Empresarial</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" rows="4" required placeholder="Descreva sucintamente a sua necessidade..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Offices Info -->
+            <div class="offices-info">
+                <h3>Nossas Unidades</h3>
+                
+                <div class="office-card">
+                    <h4><i class="fa-solid fa-location-dot"></i> São Paulo (Sede)</h4>
+                    <p>Avenida Nove de Julho, 3147 – 1º Andar<br>Jardim Paulista – São Paulo / SP</p>
+                    <p class="phone"><i class="fa-solid fa-phone"></i> (11) 3059-0910</p>
+                    <p class="email"><i class="fa-solid fa-envelope"></i> sp@paivaecorrea.com.br</p>
+                </div>
+
+                <div class="office-card">
+                    <h4><i class="fa-solid fa-location-dot"></i> Rio de Janeiro</h4>
+                    <p>Av. Rio Branco, 108 – Centro<br>Rio de Janeiro / RJ</p>
+                    <p class="phone"><i class="fa-solid fa-phone"></i> (21) 2220-0000</p>
+                    <p class="email"><i class="fa-solid fa-envelope"></i> rj@paivaecorrea.com.br</p>
+                </div>
+
+                <div class="office-card">
+                    <h4><i class="fa-solid fa-location-dot"></i> Brasília</h4>
+                    <p>Setor Comercial Sul, Quadra 04 – Asa Sul<br>Brasília / DF</p>
+                    <p class="phone"><i class="fa-solid fa-phone"></i> (61) 3321-0000</p>
+                    <p class="email"><i class="fa-solid fa-envelope"></i> df@paivaecorrea.com.br</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo footer-logo">
+                    <div class="logo-mark">PC</div>
+                    <div class="logo-text">
+                        <span class="brand-name">PAIVA E CORRÊA</span>
+                        <span class="brand-sub">ADVOGADOS ASSOCIADOS</span>
+                    </div>
+                </a>
+                <p>Desde 1992 prestando assessoria jurídica consultiva e contenciosa com ética, agilidade e excelência técnica.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Escritório</a></li>
+                    <li><a href="#atuacao">Áreas de Atuação</a></li>
+                    <li><a href="#equipe">Nossa Equipe</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Áreas Principais</h4>
+                <ul>
+                    <li><a href="#atuacao">Direito Tributário</a></li>
+                    <li><a href="#atuacao">Contratual & Societário</a></li>
+                    <li><a href="#atuacao">Trabalhista Empresarial</a></li>
+                    <li><a href="#atuacao">Cível e Comercial</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Siga-nos</h4>
+                <div class="footer-social">
+                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>&copy; 2026 <strong>Paiva e Corrêa Advogados</strong>. Todos os direitos reservados.</p>
+                <p class="disclaimer">A cópia ou reprodução não autorizada de imagens, textos e conteúdos deste site é estritamente proibida.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Practice Detail Modal -->
+    <div class="modal" id="practiceModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePracticeModal()">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
