@@ -6,12 +6,34 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Paiva e Corrêa | Advogados Associados</title>
     <link rel="stylesheet" href="style.css">
+    
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ================================================================= -->
+    <!-- GOOGLE TAG (gtag.js) - Google Analytics 4 & Google Ads            -->
+    <!-- ================================================================= -->
+    <!-- Substitua 'G-XXXXXXXXXX' pelo seu ID do GA4                       -->
+    <!-- Substitua 'AW-XXXXXXXXX' pelo seu ID do Google Ads                -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Configuração Google Analytics 4
+      gtag('config', 'G-XXXXXXXXXX');
+
+      // Configuração Google Ads
+      gtag('config', 'AW-XXXXXXXXX');
+    </script>
+    <!-- ================================================================= -->
+
     <style>
         :root {
             --primary-navy: #0F1C2E;
@@ -225,8 +247,8 @@
     <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-info">
-                <a href="tel:1130590910"><i class="fa-solid fa-phone"></i> (11) 3059-0910</a>
-                <a href="mailto:contato@paivaecorrea.com.br"><i class="fa-solid fa-envelope"></i> contato@paivaecorrea.com.br</a>
+                <a href="tel:1130590910" onclick="gtag('event', 'click_phone', {'event_category': 'Contato'});"><i class="fa-solid fa-phone"></i> (11) 3059-0910</a>
+                <a href="mailto:contato@paivaecorrea.com.br" onclick="gtag('event', 'click_email', {'event_category': 'Contato'});"><i class="fa-solid fa-envelope"></i> contato@paivaecorrea.com.br</a>
             </div>
             <div class="top-social">
                 <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -393,7 +415,7 @@
         </div>
     </section>
 
-    <!-- Team Section (AI Portraits) -->
+    <!-- Team Section -->
     <section class="team" id="equipe">
         <div class="container">
             <div class="section-header text-center">
@@ -403,93 +425,93 @@
                 <div class="header-divider"></div>
             </div>
 
-<section class="equipe-container">
-        <h2 class="section-title">Sócias Fundadoras</h2>
+            <div class="equipe-container">
+                <h2 class="section-title">Sócias Fundadoras</h2>
 
-        <!-- Card 1: Kamila Paiva -->
-        <div class="lawyer-card">
-            <img src="static/img/kamila.jpeg" alt="Kamila Paiva" class="lawyer-photo">
-            <div class="lawyer-info">
-                <div class="lawyer-header">
-                    <h3 class="lawyer-name">Kamila Paiva</h3>
-                    <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                </div>
-                <a href="mailto:kamila@paivaecorrea.com.br" class="lawyer-email">kamila@paivaecorrea.com.br</a>
-                
-                <p class="lawyer-bio">
-                    <strong>Kamila Paiva</strong> é sócia fundadora do Paiva e Corrêa Advogados e advogada com mais de 16 anos de atuação no direito bancário e regulatório financeiro. É membra da Associação dos Advogados de São Paulo (AASP) e da Comissão de Direito Bancário da OAB-SP.<br><br>
-                    Atua no atendimento jurídico a instituições financeiras, instituições de pagamento, empresas e pessoas físicas, da conformidade regulatória a litígios bancários, empresariais, consumeristas e imobiliários.
-                </p>
+                <!-- Card 1: Kamila Paiva -->
+                <div class="lawyer-card">
+                    <img src="static/img/kamila.jpeg" alt="Kamila Paiva" class="lawyer-photo">
+                    <div class="lawyer-info">
+                        <div class="lawyer-header">
+                            <h3 class="lawyer-name">Kamila Paiva</h3>
+                            <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <a href="mailto:kamila@paivaecorrea.com.br" class="lawyer-email">kamila@paivaecorrea.com.br</a>
+                        
+                        <p class="lawyer-bio">
+                            <strong>Kamila Paiva</strong> é sócia fundadora do Paiva e Corrêa Advogados e advogada com mais de 16 anos de atuação no direito bancário e regulatório financeiro. É membra da Associação dos Advogados de São Paulo (AASP) e da Comissão de Direito Bancário da OAB-SP.<br><br>
+                            Atua no atendimento jurídico a instituições financeiras, instituições de pagamento, empresas e pessoas físicas, da conformidade regulatória a litígios bancários, empresariais, consumeristas e imobiliários.
+                        </p>
 
-                <!-- Destaques Formação e Certificações -->
-                <div class="highlight-box">
-                    <h4><i class="fa-solid fa-graduation-cap"></i> Formação Acadêmica</h4>
-                    <ul>
-                        <li>Bacharel em Direito — Universidade Bandeirante de São Paulo</li>
-                        <li>Pós-graduação em Direito e Processo Tributário — Escola Paulista de Direito</li>
-                    </ul>
+                        <!-- Destaques Formação e Certificações -->
+                        <div class="highlight-box">
+                            <h4><i class="fa-solid fa-graduation-cap"></i> Formação Acadêmica</h4>
+                            <ul>
+                                <li>Bacharel em Direito — Universidade Bandeirante de São Paulo</li>
+                                <li>Pós-graduação em Direito e Processo Tributário — Escola Paulista de Direito</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="fa-solid fa-certificate"></i> Certificações & Cursos Complementares</h4>
+                            <ul class="cert-list">
+                                <li>Governança Regulatória e Cláusulas Contratuais (PUC)</li>
+                                <li>Governança Regulatória, Prevenção a Fraude e Anticorrupção (LEC)</li>
+                                <li>Extensão em Direito de Proteção de Dados (PUC)</li>
+                                <li>Extensão em Direitos Financeiros e Crimes (PUC)</li>
+                                <li>Direito Empresarial e Nova Lei de Falências (PUC)</li>
+                                <li>Propriedade Intelectual para Startups (SEBRAE-SP)</li>
+                                <li>Extensão em Direito de Família e Sucessões (ESA)</li>
+                            </ul>
+                        </div>
+
+                        <div class="lawyer-buttons">
+                            <a href="mailto:kamila@paivaecorrea.com.br" class="btn-outline"><i class="fa-regular fa-envelope"></i> Entrar em Contato</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="highlight-box">
-                    <h4><i class="fa-solid fa-certificate"></i> Certificações & Cursos Complementares</h4>
-                    <ul class="cert-list">
-                        <li>Governança Regulatória e Cláusulas Contratuais (PUC)</li>
-                        <li>Governança Regulatória, Prevenção a Fraude e Anticorrupção (LEC)</li>
-                        <li>Extensão em Direito de Proteção de Dados (PUC)</li>
-                        <li>Extensão em Direitos Financeiros e Crimes (PUC)</li>
-                        <li>Direito Empresarial e Nova Lei de Falências (PUC)</li>
-                        <li>Propriedade Intelectual para Startups (SEBRAE-SP)</li>
-                        <li>Extensão em Direito de Família e Sucessões (ESA)</li>
-                    </ul>
-                </div>
+                <!-- Card 2: Karla Corrêa (Invertido) -->
+                <div class="lawyer-card reverse">
+                    <img src="static/img/karla.jpeg" alt="Karla Corrêa" class="lawyer-photo">
+                    <div class="lawyer-info">
+                        <div class="lawyer-header">
+                            <h3 class="lawyer-name">Karla Corrêa</h3>
+                            <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <a href="mailto:karla@paivaecorrea.com.br" class="lawyer-email">karla@paivaecorrea.com.br</a>
+                        
+                        <p class="lawyer-bio">
+                            <strong>Karla Corrêa</strong> é sócia fundadora do escritório Paiva e Corrêa Advogados. Graduada em 2009, possui forte expertise prática na condução de causas complexas e consultoria preventiva, unindo visão estratégica jurídica ao desenvolvimento institucional.
+                        </p>
 
-                <div class="lawyer-buttons">
-                    <a href="mailto:kamila@paivaecorrea.com.br" class="btn-outline"><i class="fa-regular fa-envelope"></i> Entrar em Contato</a>
+                        <!-- Destaques Áreas e Especializações -->
+                        <div class="highlight-box">
+                            <h4><i class="fa-solid fa-award"></i> Especialização e Pós-Graduação</h4>
+                            <ul>
+                                <li>Especialista em Direito Empresarial e Tributário</li>
+                                <li>Pós-Graduada em Terapia Integrativa: Desenvolvimento Humano como Modelo de Negócio</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="fa-solid fa-scale-balanced"></i> Áreas Principais de Atuação</h4>
+                            <ul class="cert-list">
+                                <li>Direito de Família</li>
+                                <li>Erro Médico & Saúde</li>
+                                <li>Regularização Imobiliária</li>
+                                <li>Planejamento Patrimonial</li>
+                            </ul>
+                        </div>
+
+                        <div class="lawyer-buttons">
+                            <a href="mailto:karla@paivaecorrea.com.br" class="btn-outline"><i class="fa-regular fa-envelope"></i> Entrar em Contato</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </div>      
         </div>
-
-        <!-- Card 2: Karla Corrêa (Invertido) -->
-        <div class="lawyer-card reverse">
-            <img src="static/img/karla.jpeg" alt="Karla Corrêa" class="lawyer-photo">
-            <div class="lawyer-info">
-                <div class="lawyer-header">
-                    <h3 class="lawyer-name">Karla Corrêa</h3>
-                    <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                </div>
-                <a href="mailto:karla@paivaecorrea.com.br" class="lawyer-email">karla@paivaecorrea.com.br</a>
-                
-                <p class="lawyer-bio">
-                    <strong>Karla Corrêa</strong> é sócia fundadora do escritório Paiva e Corrêa Advogados. Graduada em 2009, possui forte expertise prática na condução de causas complexas e consultoria preventiva, unindo visão estratégica jurídica ao desenvolvimento institucional.
-                </p>
-
-                <!-- Destaques Áreas e Especializações -->
-                <div class="highlight-box">
-                    <h4><i class="fa-solid fa-award"></i> Especialização e Pós-Graduação</h4>
-                    <ul>
-                        <li>Especialista em Direito Empresarial e Tributário</li>
-                        <li>Pós-Graduada em Terapia Integrativa: Desenvolvimento Humano como Modelo de Negócio</li>
-                    </ul>
-                </div>
-
-                <div class="highlight-box">
-                    <h4><i class="fa-solid fa-scale-balanced"></i> Áreas Principais de Atuação</h4>
-                    <ul class="cert-list">
-                        <li>Direito de Família</li>
-                        <li>Erro Médico & Saúde</li>
-                        <li>Regularização Imobiliária</li>
-                        <li>Planejamento Patrimonial</li>
-                    </ul>
-                </div>
-
-                <div class="lawyer-buttons">
-                    <a href="mailto:karla@paivaecorrea.com.br" class="btn-outline"><i class="fa-regular fa-envelope"></i> Entrar em Contato</a>
-                </div>
-            </div>
-        </div>
-    </section>      
-   
-</section>
+    </section>
 
     <!-- Stats / Counter Section -->
     <section class="stats">
@@ -659,6 +681,47 @@
         </div>
     </div>
 
+    <!-- Scripts de Interação e Métricas -->
     <script src="script.js"></script>
+    <script>
+      // Função para reportar conversão no Google Ads
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        // Substitua pelo seu ID de Conversão e Rótulo do Google Ads
+        gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXXXX/LABEL_DA_CONVERSAO',
+            'event_callback': callback
+        });
+        return false;
+      }
+
+      // Handler do Formulário com rastreamento
+      function handleFormSubmit(event) {
+          event.preventDefault();
+          
+          // 1. Dispara Conversão do Google Ads
+          gtag_report_conversion();
+          
+          // 2. Dispara Evento de Lead no GA4
+          gtag('event', 'generate_lead', {
+              'event_category': 'Contato',
+              'event_label': 'Formulário Principal'
+          });
+
+          alert('Obrigado! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.');
+          event.target.reset();
+      }
+
+      function closeAlert() {
+          var alertElement = document.getElementById('securityAlert');
+          if(alertElement) {
+              alertElement.style.display = 'none';
+          }
+      }
+    </script>
 </body>
 </html>
