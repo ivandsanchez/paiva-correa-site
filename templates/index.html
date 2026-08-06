@@ -18,8 +18,6 @@
     <!-- ================================================================= -->
     <!-- GOOGLE TAG (gtag.js) - Google Analytics 4 & Google Ads            -->
     <!-- ================================================================= -->
-    <!-- Substitua 'G-XXXXXXXXXX' pelo seu ID do GA4                       -->
-    <!-- Substitua 'AW-XXXXXXXXX' pelo seu ID do Google Ads                -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -34,201 +32,6 @@
     </script>
     <!-- ================================================================= -->
 
-    <style>
-        :root {
-            --primary-navy: #0F1C2E;
-            --accent-gold: #C5A059;
-            --text-dark: #2A2A2A;
-            --bg-light: #F8F9FA;
-            --white: #FFFFFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-        }
-
-        /* Top Bar & Nav */
-        .top-bar {
-            background-color: var(--primary-navy);
-            color: var(--white);
-            padding: 8px 5%;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .alert-bar {
-            background-color: #8B0000;
-            color: white;
-            padding: 6px;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        /* Seção Equipe (Estilo Adaptado da Imagem) */
-        .equipe-container {
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary-navy);
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .lawyer-card {
-            display: flex;
-            align-items: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        /* Inversão para a segunda advogada */
-        .lawyer-card.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .lawyer-photo {
-            width: 45%;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 2px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .lawyer-info {
-            width: 60%;
-            background-color: var(--primary-navy);
-            color: var(--white);
-            padding: 40px;
-            border-radius: 2px;
-            z-index: 2;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        /* Sobreposição sutil entre a foto e o card */
-        .lawyer-card:not(.reverse) .lawyer-info {
-            margin-left: -5%;
-        }
-
-        .lawyer-card.reverse .lawyer-info {
-            margin-right: -5%;
-        }
-
-        .lawyer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .lawyer-name {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .linkedin-icon {
-            color: var(--accent-gold);
-            font-size: 1.3rem;
-            text-decoration: none;
-        }
-
-        .lawyer-email {
-            color: var(--accent-gold);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            display: block;
-            text-decoration: none;
-            border-left: 2px solid var(--accent-gold);
-            padding-left: 10px;
-        }
-
-        .lawyer-bio {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #D1D5DB;
-            margin-bottom: 25px;
-        }
-
-        .lawyer-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-outline {
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            background: transparent;
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--accent-gold);
-            color: var(--primary-navy);
-        }
-
-        /* Footer com novo endereço */
-        footer {
-            background-color: var(--primary-navy);
-            color: var(--white);
-            padding: 40px 5% 20px;
-            margin-top: 80px;
-            border-top: 3px solid var(--accent-gold);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-section h4 {
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-        }
-
-        .footer-section p {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #CCCCCC;
-        }
-
-        /* Responsividade básica */
-        @media (max-width: 768px) {
-            .lawyer-card, .lawyer-card.reverse {
-                flex-direction: column;
-            }
-            .lawyer-photo, .lawyer-info {
-                width: 100%;
-            }
-            .lawyer-card:not(.reverse) .lawyer-info,
-            .lawyer-card.reverse .lawyer-info {
-                margin: -30px 0 0 0;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -247,7 +50,7 @@
     <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-info">
-                <a href="tel:1130590910" onclick="gtag('event', 'click_phone', {'event_category': 'Contato'});"><i class="fa-solid fa-phone"></i> (11) 3059-0910</a>
+                <a href="tel:(11) 96191-7900" onclick="gtag('event', 'click_phone', {'event_category': 'Contato'});"><i class="fa-solid fa-phone"></i> (11) 96191-7900</a>
                 <a href="mailto:contato@paivaecorrea.com.br" onclick="gtag('event', 'click_email', {'event_category': 'Contato'});"><i class="fa-solid fa-envelope"></i> contato@paivaecorrea.com.br</a>
             </div>
             <div class="top-social">
@@ -273,6 +76,7 @@
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#sobre">Escritório</a></li>
                     <li><a href="#atuacao">Atuação</a></li>
+                    <li><a href="#informativos">Informativos</a></li>
                     <li><a href="#equipe">Equipe</a></li>
                     <li><a href="#diferenciais">Diferenciais</a></li>
                     <li><a href="#contato">Contato</a></li>
@@ -415,6 +219,194 @@
         </div>
     </section>
 
+    <!-- SEÇÃO ADICIONADA: INFORMATIVOS E DIREITOS (ESTILO FOLHEÁVEL DE REDE SOCIAL) -->
+    <section class="news-slider-section" id="informativos">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Atualizações Jurídicas</span>
+                <h2>Informativo Trabalhista</h2>
+                <p class="section-desc">Folheie os cards abaixo para entender os direitos e entendimentos dos Tribunais Superiores sobre faltas por violência doméstica.</p>
+                <div class="header-divider"></div>
+            </div>
+
+            <div class="slider-wrapper">
+                <div class="cards-container" id="flipContainer">
+                    <!-- Card 1 -->
+                    <div class="flip-card active">
+                        <span class="card-tag">Justiça do Trabalho</span>
+                        <h3 class="card-title-text">Faltar ao trabalho por causa de violência doméstica não é abandono de emprego.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">A lei protege o vínculo. E há decisão do STF definindo quem paga o período de afastamento.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="flip-card">
+                        <span class="card-tag">O Caso</span>
+                        <h3 class="card-title-text">Ela se ausentou após ameaças de morte. A empresa aplicou justa causa por abandono.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">Havia boletim de ocorrência e pedido de medida protetiva de urgência — ambos comunicados à empregadora.</p>
+                        <p class="card-body-text" style="margin-top: 10px;">Em juízo, testemunha da própria empresa confirmou que havia pleno conhecimento do contexto de violência.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="flip-card card-navy">
+                        <span class="card-tag">A Decisão</span>
+                        <h3 class="card-title-text">A dispensa foi revertida, com indenização por dano moral.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">Para a sentença, não é razoável exigir a regularização formal e documental das faltas de quem está nesse contexto — e não havia qualquer intenção de romper o vínculo.</p>
+                        <span class="card-footer-note">Sentença de 1º grau · pendente de recurso</span>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="flip-card">
+                        <span class="card-tag">O Que Já Diz A Lei</span>
+                        <h3 class="card-title-text">O vínculo é mantido quando o afastamento é necessário.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">A Lei Maria da Penha assegura a manutenção do vínculo empregatício quando a mulher precisa se me afastar do local de trabalho para preservar sua integridade, por até seis meses.</p>
+                        <span class="card-footer-note">art. 9º, § 2º, II, da Lei 11.340/2006</span>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="flip-card card-navy">
+                        <span class="card-tag">E quem paga esse período?</span>
+                        <h3 class="card-title-text">O STF já definiu.</h3>
+                        <div class="card-divider"></div>
+                        <ul class="card-bullets">
+                            <li>Os 15 primeiros dias ficam a cargo do empregador.</li>
+                            <li>O período seguinte é custeado pelo INSS.</li>
+                            <li>A trabalhadora não fica sem renda.</li>
+                        </ul>
+                        <span class="card-footer-note">Tema 1.370 · repercussão geral</span>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="flip-card">
+                        <span class="card-tag">Para a Empresa</span>
+                        <h3 class="card-title-text">Ciente do contexto, presumir abandono é assumir risco.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">Reversão da justa causa, verbas rescisórias, indenização por dano moral e exposição reputacional.</p>
+                        <p class="card-body-text" style="margin-top: 10px;">O caminho é formalizar o afastamento previsto em lei — não interpretar a ausência como desinteresse pelo emprego.</p>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="flip-card">
+                        <span class="card-tag">Se está acontecendo com você</span>
+                        <h3 class="card-title-text">Guarde tudo.</h3>
+                        <div class="card-divider"></div>
+                        <ul class="card-bullets">
+                            <li>Boletim de ocorrência</li>
+                            <li>Pedido ou decisão de medida protetiva</li>
+                            <li>Registro da comunicação à empresa</li>
+                            <li>E-mails, mensagens e atestados</li>
+                            <li>Datas das ausências e o motivo</li>
+                        </ul>
+                        <p class="card-body-text" style="font-style: italic; margin-top: 10px;">Documento é o que sustenta o direito depois.</p>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="flip-card card-navy">
+                        <span class="card-tag">Se você está em situação de violência</span>
+                        <h3 class="card-title-text highlight-number">Ligue 180.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">Gratuito, 24 horas por dia, todos os dias. A ligação não aparece na conta telefônica.</p>
+
+
+                        <span class="card-footer-note">PAIVA E CORRÊA ADVOGADOS · Direito do Trabalho<br>Conteúdo informativo. Não substitui orientação jurídica individualizada.</span>
+                    </div>
+                    <div class="flip-card active card-navy">
+                        <span class="card-tag">Salário Atrasado</span>
+                        <h3 class="card-title-text">Está há meses sem receber? O maior erro é pedir demissão.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">Existe outro caminho — e ele muda tudo o que você recebe no fim.</p>
+                        <span class="card-footer-note">PAIVA E CORRÊA ADVOGADOS · 1/10</span>
+                    </div>
+                      <div class="flip-card">
+                        <span class="card-tag">Por que pedir demissão é o pior caminho</span>
+                        <h3 class="card-title-text">Você sai como se a culpa fosse sua.</h3>
+                        <div class="card-divider"></div>
+                        <ul class="card-bullets">
+                            <li>Perde o aviso prévio</li>
+                            <li>Perde a multa de 40% do FGTS</li>
+                            <li>Perde o seguro-desemprego</li>
+                            <li>E ainda enfraquece qualquer pedido de indenização</li>
+                        </ul>
+                        <span class="card-footer-note">PAIVA E CORRÊA ADVOGADOS · 2/10</span>
+                    </div>
+                    <div class="flip-card">
+                        <span class="card-tag">O Caminho Certo</span>
+                        <h3 class="card-title-text">Rescisão indireta: a justa causa do empregador.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">Quando a empresa descumpre o contrato, você pode romper o vínculo e sair recebendo tudo — como numa dispensa sem justa causa.</p>
+                        <p class="card-body-text" style="margin-top: 10px;"><strong>Não pagar salário está expressamente na lei como um desses casos.</strong></p>
+                        <span class="card-footer-note">art. 483, "d", da CLT</span>
+                    </div>
+
+                    <!-- MATÉRIA 1 - SLIDE 4: ENTENDIMENTO DO TST -->
+                    <div class="flip-card card-navy">
+                        <span class="card-tag">Entendimento do TST</span>
+                        <h3 class="card-title-text">Atraso reiterado de salário gera dano presumido.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">Salário é meio de subsistência. O atraso repetido cria a angústia de não conseguir quitar as despesas do mês.</p>
+                        <p class="card-body-text" style="margin-top: 10px; color: var(--accent-gold);"><strong>Nessa situação, o dano é evidente. Não precisa ser comprovado.</strong></p>
+                        <span class="card-footer-note">Jurisprudência TST · Dano Moral Presumido</span>
+                    </div>
+
+                    <!-- MATÉRIA 2: VIOLÊNCIA DOMÉSTICA E TRABALHO -->
+                    <div class="flip-card">
+                        <span class="card-tag">Justiça do Trabalho</span>
+                        <h3 class="card-title-text">Faltar ao trabalho por causa de violência doméstica não é abandono de emprego.</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">A Lei Maria da Penha assegura a manutenção do vínculo empregatício por até seis meses quando necessário o afastamento.</p>
+                        <span class="card-footer-note">art. 9º, § 2º, II, da Lei 11.340/2006</span>
+                    </div>
+
+                    <div class="flip-card card-navy">
+                        <span class="card-tag">Decisão STF</span>
+                        <h3 class="card-title-text">Quem custeia o afastamento?</h3>
+                        <div class="card-divider"></div>
+                        <ul class="card-bullets">
+                            <li>Os 15 primeiros dias ficam a cargo do empregador.</li>
+                            <li>O período seguinte é custeado pelo INSS.</li>
+                            <li>A trabalhadora não fica sem renda.</li>
+                        </ul>
+                        <span class="card-footer-note">Tema 1.370 · Repercussão Geral STF</span>
+                    </div>
+
+                        <div class="flip-card card-navy">
+                        <span class="card-tag">Direito Regulatório Financeiro</span>
+                        <h3 class="card-title-text">Ficha de Responsabilidade de Administrador (BCB)</h3>
+                        <div class="card-divider"></div>
+                        <p class="card-body-text">Análise completa sobre o processo sancionador da Lei nº 13.506/2017 e Resolução BCB nº 131/2021 aplicada a diretores e conselheiros.</p>
+                        
+                        <div class="pdf-download-box">
+                            <p style="font-size: 0.8rem; color: #E2E8F0;">Faça o download do e-book informativo completo em formato PDF:</p>
+                            <!-- LINK DE DOWNLOAD DO PDF RESERVADO ABAIXO -->
+                            <a href="ficha-responsabilidade-administrador-bcb.pdf" download class="btn-download-pdf">
+                                <i class="fa-solid fa-file-pdf"></i> Baixar Material (PDF)
+                            </a>
+                        </div>
+                        <span class="card-footer-note">Paiva e Corrêa Advogados · Regulatório BCB</span>
+                    </div>
+
+                 
+
+
+                    
+                </div>
+
+                <!-- Navegação -->
+                <div class="slider-controls">
+                    <button class="slider-arrow" id="prevCardBtn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="slider-dots" id="dotsContainer"></div>
+                    <button class="slider-arrow" id="nextCardBtn" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+ 
+        </div>
+        
+    </section>
+
+
     <!-- Team Section -->
     <section class="team" id="equipe">
         <div class="container">
@@ -436,7 +428,7 @@
                             <h3 class="lawyer-name">Kamila Paiva</h3>
                             <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
-                        <a href="mailto:kamila@paivaecorrea.com.br" class="lawyer-email">kamila@paivaecorrea.com.br</a>
+                        <a href="mailto:kamila@paivaecorrea.com.br" class="lawyer-email">Kamila@paivaecorrea.com.br</a>
                         
                         <p class="lawyer-bio">
                             <strong>Kamila Paiva</strong> é sócia fundadora do Paiva e Corrêa Advogados e advogada com mais de 16 anos de atuação no direito bancário e regulatório financeiro. É membra da Associação dos Advogados de São Paulo (AASP) e da Comissão de Direito Bancário da OAB-SP.<br><br>
@@ -479,7 +471,7 @@
                             <h3 class="lawyer-name">Karla Corrêa</h3>
                             <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
-                        <a href="mailto:karla@paivaecorrea.com.br" class="lawyer-email">karla@paivaecorrea.com.br</a>
+                        <a href="mailto:karla@paivaecorrea.com.br" class="lawyer-email">Karla@paivaecorrea.com.br</a>
                         
                         <p class="lawyer-bio">
                             <strong>Karla Corrêa</strong> é sócia fundadora do escritório Paiva e Corrêa Advogados. Graduada em 2009, possui forte expertise prática na condução de causas complexas e consultoria preventiva, unindo visão estratégica jurídica ao desenvolvimento institucional.
@@ -564,7 +556,7 @@
                     </div>
                     <div class="form-group">
                         <label for="telefone">Telefone / WhatsApp *</label>
-                        <input type="tel" id="telefone" required placeholder="(11) 99999-9999">
+                        <input type="tel" id="telefone" required placeholder="(11) 9xxxx-xxxx">
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail *</label>
@@ -599,24 +591,11 @@
                 
                 <div class="office-card">
                     <h4><i class="fa-solid fa-location-dot"></i> São Paulo (Sede)</h4>
-                    <p>Avenida Nove de Julho, 3147 – 1º Andar<br>Jardim Paulista – São Paulo / SP</p>
-                    <p class="phone"><i class="fa-solid fa-phone"></i> (11) 3059-0910</p>
+                    <p>Avenida Paulista, 1337 – 7º Andar<br>Jardim Paulista – São Paulo / SP</p>
+                    <p class="phone"><i class="fa-solid fa-phone"></i> (11) 96191-7900</p>
                     <p class="email"><i class="fa-solid fa-envelope"></i> sp@paivaecorrea.com.br</p>
                 </div>
 
-                <div class="office-card">
-                    <h4><i class="fa-solid fa-location-dot"></i> Rio de Janeiro</h4>
-                    <p>Av. Rio Branco, 108 – Centro<br>Rio de Janeiro / RJ</p>
-                    <p class="phone"><i class="fa-solid fa-phone"></i> (21) 2220-0000</p>
-                    <p class="email"><i class="fa-solid fa-envelope"></i> rj@paivaecorrea.com.br</p>
-                </div>
-
-                <div class="office-card">
-                    <h4><i class="fa-solid fa-location-dot"></i> Brasília</h4>
-                    <p>Setor Comercial Sul, Quadra 04 – Asa Sul<br>Brasília / DF</p>
-                    <p class="phone"><i class="fa-solid fa-phone"></i> (61) 3321-0000</p>
-                    <p class="email"><i class="fa-solid fa-envelope"></i> df@paivaecorrea.com.br</p>
-                </div>
             </div>
         </div>
     </section>
@@ -632,7 +611,7 @@
                         <span class="brand-sub">ADVOGADOS ASSOCIADOS</span>
                     </div>
                 </a>
-                <p>Desde 1992 prestando assessoria jurídica consultiva e contenciosa com ética, agilidade e excelência técnica.</p>
+                <p>Desde 2018 prestando assessoria jurídica consultiva e contenciosa com ética, agilidade e excelência técnica.</p>
             </div>
 
             <div class="footer-col">
@@ -641,6 +620,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#sobre">Escritório</a></li>
                     <li><a href="#atuacao">Áreas de Atuação</a></li>
+                    <li><a href="#informativos">Informativos</a></li>
                     <li><a href="#equipe">Nossa Equipe</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
@@ -712,16 +692,90 @@
               'event_label': 'Formulário Principal'
           });
 
-          alert('Obrigado! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.');
+          alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
           event.target.reset();
       }
 
-      function closeAlert() {
-          var alertElement = document.getElementById('securityAlert');
-          if(alertElement) {
-              alertElement.style.display = 'none';
+      // LÓGICA DO CARROSSEL FOLHEÁVEL DE INFORMATIVOS
+      document.addEventListener('DOMContentLoaded', function () {
+          const cards = document.querySelectorAll('#flipContainer .flip-card');
+          const dotsContainer = document.getElementById('dotsContainer');
+          const prevBtn = document.getElementById('prevCardBtn');
+          const nextBtn = document.getElementById('nextCardBtn');
+          let currentIndex = 0;
+
+          // Cria os pontos de navegação
+          cards.forEach((_, idx) => {
+              const dot = document.createElement('div');
+              dot.classList.add('dot');
+              if (idx === 0) dot.classList.add('active');
+              dot.addEventListener('click', () => goToCard(idx));
+              dotsContainer.appendChild(dot);
+          });
+
+          const dots = dotsContainer.querySelectorAll('.dot');
+
+          function updateCards() {
+              cards.forEach((card, idx) => {
+                  card.classList.remove('active', 'prev');
+                  if (idx === currentIndex) {
+                      card.classList.add('active');
+                  } else if (idx < currentIndex) {
+                      card.classList.add('prev');
+                  }
+              });
+
+              dots.forEach((dot, idx) => {
+                  dot.classList.toggle('active', idx === currentIndex);
+              });
           }
-      }
+
+          function goToCard(index) {
+              currentIndex = index;
+              updateCards();
+          }
+
+          nextBtn.addEventListener('click', function () {
+              if (currentIndex < cards.length - 1) {
+                  currentIndex++;
+              } else {
+                  currentIndex = 0; // Volta para o início
+              }
+              updateCards();
+          });
+
+          prevBtn.addEventListener('click', function () {
+              if (currentIndex > 0) {
+                  currentIndex--;
+              } else {
+                  currentIndex = cards.length - 1; // Vai para o último
+              }
+              updateCards();
+          });
+
+          // Suporte a gestos de deslizar (swipe) em dispositivos móveis
+          let touchStartX = 0;
+          let touchEndX = 0;
+          const container = document.getElementById('flipContainer');
+
+          container.addEventListener('touchstart', e => {
+              touchStartX = e.changedTouches[0].screenX;
+          }, false);
+
+          container.addEventListener('touchend', e => {
+              touchEndX = e.changedTouches[0].screenX;
+              handleSwipe();
+          }, false);
+
+          function handleSwipe() {
+              if (touchEndX < touchStartX - 40) {
+                  nextBtn.click();
+              }
+              if (touchEndX > touchStartX + 40) {
+                  prevBtn.click();
+              }
+          }
+      });
     </script>
 </body>
 </html>
