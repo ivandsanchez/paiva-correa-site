@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Paiva e Corrêa | Advogados Associados</title>
+    <title>Paiva e Correa | Sociedade de Advogados</title>
     <link rel="stylesheet" href="style.css">
     
     <!-- FontAwesome for Icons -->
@@ -19,6 +19,14 @@
     <!-- GOOGLE TAG (gtag.js) - Google Analytics 4 & Google Ads            -->
     <!-- ================================================================= -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+  function closeAlert() {
+    const alertBar = document.getElementById('securityAlert');
+    if (alertBar) {
+      alertBar.style.display = 'none';
+    }
+  }
+</script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -40,13 +48,16 @@
         <div class="container alert-container">
             <div class="alert-content">
                 <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
-                <span><strong>ALERTA DE SEGURANÇA:</strong> Não entramos em contato pelo WhatsApp ou telefone solicitando dados bancários ou transferências financeiras. Fale conosco apenas pelos canais oficiais do escritório <strong>Paiva e Corrêa Advogados</strong>.</span>
+                <span>
+                    Não solicitamos transferências financeiras, pagamentos de guias ou dados bancários por este canal. Caso receba qualquer mensagem suspeita, 
+                    valide as informações diretamente com o advogado responsável pelo seu caso ou pelo canal institucional.
+                </span>
             </div>
             <button class="alert-close" onclick="closeAlert()">&times;</button>
         </div>
     </div>
 
-    <!-- Top Contact Header -->
+    <!-- Top Contact Header 
     <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-info">
@@ -58,7 +69,7 @@
                 <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- Main Header / Navigation -->
     <header class="main-header" id="header">
@@ -66,8 +77,8 @@
             <a href="#" class="logo">
                 <div class="logo-mark">PC</div>
                 <div class="logo-text">
-                    <span class="brand-name">PAIVA E CORRÊA</span>
-                    <span class="brand-sub">ADVOGADOS ASSOCIADOS</span>
+                    <span class="brand-name">PAIVA E CORREA</span>
+                    <span class="brand-sub">Sociedade de Advogados</span>
                 </div>
             </a>
 
@@ -75,10 +86,10 @@
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#sobre">Escritório</a></li>
-                    <li><a href="#atuacao">Atuação</a></li>
-                    <li><a href="#informativos">Informativos</a></li>
+                    <li><a href="#atuacao">Áreas de Atuação</a></li>
+                    <li><a href="#publicacoes">Publicações</a></li>
                     <li><a href="#equipe">Equipe</a></li>
-                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#comoatuamos">Como atuamos</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -103,12 +114,12 @@
         <div class="hero-overlay"></div>
         <div class="container hero-container">
             <div class="hero-content">
-                <span class="hero-badge">Desde 2008</span>
-                <h1>Excelência Jurídica & Soluções Estratégicas</h1>
-                <p>Atuação nas principais áreas do direito, prestando assessoria consultiva e contenciosa de alta precisão para pessoas jurídicas e físicas.</p>
+                <span class="hero-badge">Desde 2018</span>
+                <h1>Segurança jurídica para decisões estratégicas</h1>
+                <p>Advocacia consultiva e contenciosa orientada aos objetivos do seu negócio e patrimônio.</p>
                 <div class="hero-btns">
-                    <a href="#sobre" class="btn btn-primary">Saiba Mais</a>
-                    <a href="#contato" class="btn btn-outline">Fale Conosco</a>
+                   <!-- <a href="#sobre" class="btn btn-primary">Saiba Mais</a>  -->
+                      <a href="#contato" class="btn btn-outline">Fale com um Advogado</a>
                 </div>
             </div>
         </div>
@@ -118,31 +129,31 @@
     <section class="about" id="sobre">
         <div class="container about-grid">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Escritório Paiva e Corrêa">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Escritório Paiva e Correa">
                 <div class="about-experience-badge">
-                    <span class="years">+30</span>
-                    <span class="label">Anos de Tradição e Inovação</span>
+                    <span class="years">+16</span>
+                    <span class="label">Anos de atuação em todo Brasil</span>
                 </div>
             </div>
             <div class="about-text">
-                <span class="section-subtitle">Sobre Paiva e Corrêa</span>
-                <h2>Tradição, Agilidade e Eficiência Jurídica</h2>
-                <p>O escritório <strong>Paiva e Corrêa Advogados</strong> foi constituído em 1992, com o objetivo de prestar serviços jurídicos de forma rápida, eficaz e personalizada, com maior ênfase para empresas dos mais variados ramos de atividade econômica (indústria, comércio e serviços), compreendendo a atuação em diversas áreas, tanto na esfera consultiva quanto na contenciosa.</p>
-                <p>Sediado em São Paulo, possuímos filial no Rio de Janeiro e escritórios correspondentes nas principais capitais e cidades dos demais estados do Brasil.</p>
-                
+                <span class="section-subtitle">Sobre Paiva e Correa</span>
+                <h2>Rigor Técnico, Visão Estratégica e Alcance Nacional</h2>
+                <p>Fundado em 2018 e sediado em São Paulo, o <strong>Paiva e Correa Advogados</strong> une a sólida bagagem de mais de 16 anos de suas sócias a uma estrutura ágil e abrangente. Oferecemos assessoria jurídica completa (full-service) nas esferas consultiva e contenciosa, atendendo demandas corporativas e individuais em todo o território nacional.
+Combinamos profundo conhecimento legal, visão de negócios e atendimento próximo para entregar soluções eficientes e alinhadas aos objetivos estratégicos de cada cliente.</p>
+                 
                 <div class="about-features">
                     <div class="feature-item">
                         <i class="fa-solid fa-scale-balanced"></i>
                         <div>
-                            <h4>Atuação Consultiva & Contenciosa</h4>
-                            <p>Prevenção de litígios e defesa estratégica em todas as instâncias.</p>
+                            <h4>Cobertura Abrangente (Full-Service)</h4>
+                            <p>Soluções integradas em diversas áreas do direito para empresas e pessoas físicas.</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <i class="fa-solid fa-building-user"></i>
                         <div>
-                            <h4>Atendimento Personalizado</h4>
-                            <p>Compreensão profunda do negócio do cliente para gerar resultados.</p>
+                            <h4>Atuação em Todo o Brasil</h4>
+                            <p>Sede estratégica em São Paulo e capacidade de atendimento em todo o território nacional.</p>
                         </div>
                     </div>
                 </div>
@@ -154,78 +165,98 @@
     <section class="services" id="atuacao">
         <div class="container">
             <div class="section-header text-center">
-                <span class="section-subtitle">Como Podemos Te Ajudar</span>
                 <h2>Áreas de Atuação</h2>
                 <div class="header-divider"></div>
             </div>
 
             <div class="services-grid">
                 <!-- Card 1 -->
-                <div class="service-card" onclick="openPracticeModal('administrativo')">
+                <div class="service-card" onclick="openPracticeModal('familiasucessoes')">
                     <div class="card-icon"><i class="fa-solid fa-landmark"></i></div>
-                    <h3>Administrativo</h3>
-                    <p>Defesa dos interesses do cliente junto a órgãos fiscalizadores, licitações e agências reguladoras.</p>
-                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                    <h3>Família & Sucessões</h3>
+                    <p>Assessoria jurídica humanizada e discreta em conflitos familiares, inventários e partilhas, além de planejamento sucessório e patrimonial para a preservação de bens.</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
                 </div>
 
                 <!-- Card 2 -->
-                <div class="service-card" onclick="openPracticeModal('contratual')">
+                <div class="service-card" onclick="openPracticeModal('direitobancario')">
                     <div class="card-icon"><i class="fa-solid fa-file-signature"></i></div>
-                    <h3>Contratual e Societária</h3>
-                    <p>Elaboração de atos societários, M&A, joint-ventures, restruturação e governança corporativa.</p>
-                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                    <h3>Direito Bancário, Regulatório Financeiro & Compliance</h3>
+                    <p>Assessoria a instituições financeiras, pagamentos e fintechs perante o Banco Central e órgãos reguladores. Suporte em AML/CFT, processos sancionadores e estruturação de rotinas jurídicas corporativas.</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
                 </div>
 
                 <!-- Card 3 -->
-                <div class="service-card" onclick="openPracticeModal('civel')">
-                    <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
-                    <h3>Cível, Comercial e Consumidor</h3>
-                    <p>Contencioso cível estratégico, compliance, prevenção de riscos e relação com consumidor.</p>
-                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                <div class="service-card" onclick="openPracticeModal('administrativo')">
+                    <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3>Administrativo</h3>
+                    <p>Defesa dos interesses de clientes perante órgãos fiscalizadores, agências reguladoras e processos licitatórios, com atuação preventiva e contenciosa em autos de infração.</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
                 </div>
+
+                <!-- Card 3 -->
+                <div class="service-card" onclick="openPracticeModal('contratualsocietario')">
+                    <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3>Contratual & Societário </h3>
+                    <p>Elaboração de contratos complexos, atos societários, operações de M&A, joint ventures e governança corporativa com foco na segurança das relações negociais.</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
+                </div>
+
+
 
                 <!-- Card 4 -->
-                <div class="service-card" onclick="openPracticeModal('constitucional')">
-                    <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
-                    <h3>Constitucional</h3>
-                    <p>Consultoria e questionamento da constitucionalidade de leis em tribunais superiores (STF).</p>
-                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                <div class="service-card" onclick="openPracticeModal('civel')">
+                    <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
+                    <h3>Cível e Consumidor</h3>
+                    <p>Condução de contencioso cível estratégico, estruturação de programas de compliance e prevenção de riscos em relações de consumo, da fase preventiva à judicial.</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
                 </div>
 
+
+
                 <!-- Card 5 -->
-                <div class="service-card" onclick="openPracticeModal('trabalhista')">
+                <div class="service-card" onclick="openPracticeModal('Constitucional')">
                     <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
-                    <h3>Trabalhista</h3>
-                    <p>Defesa contenciosa e consultoria preventiva nas relações de trabalho e negociações coletivas.</p>
-                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                    <h3>Constitucional</h3>
+                    <p>Consultoria e atuação estratégica em constitucionalidade de leis e atos normativos perante Tribunais de Justiça e Cortes Superiores (STF e STJ).</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
                 </div>
 
                 <!-- Card 6 -->
-                <div class="service-card" onclick="openPracticeModal('tributaria')">
+                <div class="service-card" onclick="openPracticeModal('trabalhistaprevidenciario')">
                     <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
-                    <h3>Tributária</h3>
-                    <p>Planejamento tributário, economia fiscal legal, defesas de autos de infração e execuções fiscais.</p>
-                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                    <h3>Trabalhista & Previdenciário </h3>
+                    <p>Atuação consultiva e contenciosa nas relações de trabalho e seguridade social. Suporte a empresas em conformidade trabalhista e defesa dos direitos de indivíduos em demandas judiciais e previdenciárias.</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
                 </div>
 
                 <!-- Card 7 -->
-                <div class="service-card" onclick="openPracticeModal('penal')">
+                <div class="service-card" onclick="openPracticeModal('tributario')">
+                    <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Tributário </h3>
+                    <p>Planejamento tributário voltado à eficiência fiscal, defesas em autos de infração na esfera administrativa e condução de execuções fiscais judiciais.</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
+                </div>
+
+                <!-- Card 7 -->
+                <div class="service-card" onclick="openPracticeModal('penalempresarial')">
                     <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
                     <h3>Penal Empresarial</h3>
-                    <p>Assistência consultiva e defesa criminal em crimes ambientais, ordem tributária e corporativos.</p>
-                    <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>
+                    <p>Assessoria consultiva e defesa criminal em investigações e processos por crimes ambientais, contra a ordem tributária e demais ilícitos corporativos.</p>
+                  <!--  <span class="read-more">Saiba Mais <i class="fa-solid fa-arrow-right"></i></span>-->
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- SEÇÃO ADICIONADA: INFORMATIVOS E DIREITOS (ESTILO FOLHEÁVEL DE REDE SOCIAL) -->
-    <section class="news-slider-section" id="informativos">
+    <section class="news-slider-section" id="publicacoes">
         <div class="container">
             <div class="section-header text-center">
-                <span class="section-subtitle">Atualizações Jurídicas</span>
-                <h2>Informativo Trabalhista</h2>
-                <p class="section-desc">Folheie os cards abaixo para entender os direitos e entendimentos dos Tribunais Superiores sobre faltas por violência doméstica.</p>
+                <span class="section-subtitle">Publicações</span>
+                <h2>Publicações & Imprensa</h2>
+                <p class="section-desc">Artigos, guias, estudos jurídicos e eventos produzidos pela nossa equipe para manter você e seu negócio atualizados.</p>
                 <div class="header-divider"></div>
             </div>
 
@@ -311,14 +342,14 @@
                         <p class="card-body-text">Gratuito, 24 horas por dia, todos os dias. A ligação não aparece na conta telefônica.</p>
 
 
-                        <span class="card-footer-note">PAIVA E CORRÊA ADVOGADOS · Direito do Trabalho<br>Conteúdo informativo. Não substitui orientação jurídica individualizada.</span>
+                        <span class="card-footer-note">PAIVA E Correa ADVOGADOS · Direito do Trabalho<br>Conteúdo informativo. Não substitui orientação jurídica individualizada.</span>
                     </div>
                     <div class="flip-card active card-navy">
                         <span class="card-tag">Salário Atrasado</span>
                         <h3 class="card-title-text">Está há meses sem receber? O maior erro é pedir demissão.</h3>
                         <div class="card-divider"></div>
                         <p class="card-body-text">Existe outro caminho — e ele muda tudo o que você recebe no fim.</p>
-                        <span class="card-footer-note">PAIVA E CORRÊA ADVOGADOS · 1/10</span>
+                        <span class="card-footer-note">PAIVA E Correa ADVOGADOS · 1/10</span>
                     </div>
                       <div class="flip-card">
                         <span class="card-tag">Por que pedir demissão é o pior caminho</span>
@@ -330,7 +361,7 @@
                             <li>Perde o seguro-desemprego</li>
                             <li>E ainda enfraquece qualquer pedido de indenização</li>
                         </ul>
-                        <span class="card-footer-note">PAIVA E CORRÊA ADVOGADOS · 2/10</span>
+                        <span class="card-footer-note">PAIVA E Correa ADVOGADOS · 2/10</span>
                     </div>
                     <div class="flip-card">
                         <span class="card-tag">O Caminho Certo</span>
@@ -385,7 +416,7 @@
                                 <i class="fa-solid fa-file-pdf"></i> Baixar Material (PDF)
                             </a>
                         </div>
-                        <span class="card-footer-note">Paiva e Corrêa Advogados · Regulatório BCB</span>
+                        <span class="card-footer-note">Paiva e Correa Advogados · Regulatório BCB</span>
                     </div>
 
                  
@@ -411,14 +442,14 @@
     <section class="team" id="equipe">
         <div class="container">
             <div class="section-header text-center">
-                <span class="section-subtitle">Nossos Profissionais</span>
-                <h2>Equipe Especializada</h2>
-                <p class="section-desc">Uma equipe selecionada de advogados e especialistas em constante processo de atualização para atender às demandas com agilidade e precisão técnica.</p>
+                <span class="section-subtitle">CORPO JURÍDICO</span>
+                <h2>Talento Técnico & Visão Multidisciplinar</h2>
+                <p class="section-desc">Nossa estrutura reúne advogados associados, consultores e especialistas altamente qualificados, preparados para conduzir demandas complexas em todo o Brasil com agilidade, ética e precisão.</p>
                 <div class="header-divider"></div>
             </div>
 
             <div class="equipe-container">
-                <h2 class="section-title">Sócias Fundadoras</h2>
+                <h2 class="section-title">Sócias</h2>
 
                 <!-- Card 1: Kamila Paiva -->
                 <div class="lawyer-card">
@@ -431,7 +462,7 @@
                         <a href="mailto:kamila@paivaecorrea.com.br" class="lawyer-email">Kamila@paivaecorrea.com.br</a>
                         
                         <p class="lawyer-bio">
-                            <strong>Kamila Paiva</strong> é sócia fundadora do Paiva e Corrêa Advogados e advogada com mais de 16 anos de atuação no direito bancário e regulatório financeiro. É membra da Associação dos Advogados de São Paulo (AASP) e da Comissão de Direito Bancário da OAB-SP.<br><br>
+                            <strong>Kamila Paiva</strong> é sócia fundadora do Paiva e Correa Advogados e advogada com mais de 16 anos de atuação no direito bancário e regulatório financeiro. É membra da Associação dos Advogados de São Paulo (AASP) e da Comissão de Direito Bancário da OAB-SP.<br><br>
                             Atua no atendimento jurídico a instituições financeiras, instituições de pagamento, empresas e pessoas físicas, da conformidade regulatória a litígios bancários, empresariais, consumeristas e imobiliários.
                         </p>
 
@@ -463,18 +494,18 @@
                     </div>
                 </div>
 
-                <!-- Card 2: Karla Corrêa (Invertido) -->
+                <!-- Card 2: Karla Correa (Invertido) -->
                 <div class="lawyer-card reverse">
-                    <img src="static/img/karla.jpeg" alt="Karla Corrêa" class="lawyer-photo">
+                    <img src="static/img/karla.jpeg" alt="Karla Correa" class="lawyer-photo">
                     <div class="lawyer-info">
                         <div class="lawyer-header">
-                            <h3 class="lawyer-name">Karla Corrêa</h3>
+                            <h3 class="lawyer-name">Karla Correa</h3>
                             <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
                         <a href="mailto:karla@paivaecorrea.com.br" class="lawyer-email">Karla@paivaecorrea.com.br</a>
                         
                         <p class="lawyer-bio">
-                            <strong>Karla Corrêa</strong> é sócia fundadora do escritório Paiva e Corrêa Advogados. Graduada em 2009, possui forte expertise prática na condução de causas complexas e consultoria preventiva, unindo visão estratégica jurídica ao desenvolvimento institucional.
+                            <strong>Karla Correa</strong> é sócia fundadora do escritório Paiva e Correa Advogados. Graduada em 2009, possui forte expertise prática na condução de causas complexas e consultoria preventiva, unindo visão estratégica jurídica ao desenvolvimento institucional.
                         </p>
 
                         <!-- Destaques Áreas e Especializações -->
@@ -505,7 +536,7 @@
         </div>
     </section>
 
-    <!-- Stats / Counter Section -->
+    <!-- Stats / Counter Section 
     <section class="stats">
         <div class="container stats-grid">
             <div class="stat-item">
@@ -525,20 +556,19 @@
                 <p>Advogados & Especialistas</p>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- Why Choose Us -->
-    <section class="why-us" id="diferenciais">
+    <section class="why-us" id="comoatuamos">
         <div class="container why-us-grid">
             <div class="why-us-content">
-                <span class="section-subtitle">Atendemos às suas necessidades</span>
-                <h2>Por que escolher Paiva e Corrêa?</h2>
-                <p>O escritório atende pequenas, médias e grandes empresas dos mais variados segmentos econômicos: indústrias automobilística, metalúrgica e química, construtoras, gráficas, redes de varejo, tecnologia, logística, restaurantes e associações civis.</p>
-                <p>Os profissionais de <strong>Paiva e Corrêa Advogados</strong> têm como princípio uma atuação personalizada, compreendendo previamente as atividades de seus clientes e os objetivos por eles perseguidos.</p>
-                <p>Tais valores resultam no desenvolvimento de um relacionamento duradouro e próximo com os clientes, que renovam constantemente sua confiança na nossa equipe.</p>
+                <span class="section-subtitle">Rigor técnico, ética e proximidade na condução de cada demanda</span>
+                <h2>Nosso Compromisso</h2>
+                <p>Assessoramos empresas de variados portes e setores econômicos, assim como pessoas físicas, por meio de uma prática jurídica pautada pela ética, rigor técnico e transparência.</p>
+                <p>Nossa atuação fundamenta-se na compreensão das necessidades específicas de cada cliente e na busca constante por soluções jurídicas seguras, eficientes e alinhadas aos objetivos apresentados. Pautamos nosso trabalho na construção de relacionamentos institucionais pautados pela confiança mútua e pela continuidade.</p>
             </div>
             <div class="why-us-image">
-                <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80" alt="Reunião Paiva e Corrêa">
+                <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80" alt="Reunião Paiva e Correa">
             </div>
         </div>
     </section>
@@ -580,20 +610,22 @@
                         <textarea id="mensagem" rows="4" required placeholder="Descreva sucintamente a sua necessidade..."></textarea>
                     </div>
                     <div class="form-group full-width">
-                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+                        <button type="submit" class="btn btn-primary btn-block">Consulte Nossa Equipe</button>
                     </div>
                 </form>
             </div>
 
             <!-- Offices Info -->
             <div class="offices-info">
-                <h3>Nossas Unidades</h3>
+                <h3>NOSSO ESCRITÓRIO</h3>
                 
                 <div class="office-card">
                     <h4><i class="fa-solid fa-location-dot"></i> São Paulo (Sede)</h4>
-                    <p>Avenida Paulista, 1337 – 7º Andar<br>Jardim Paulista – São Paulo / SP</p>
-                    <p class="phone"><i class="fa-solid fa-phone"></i> (11) 96191-7900</p>
-                    <p class="email"><i class="fa-solid fa-envelope"></i> sp@paivaecorrea.com.br</p>
+                    <p>Avenida Paulista, 1337 – 7º Andar - Jardim Paulista – São Paulo / SP</p>
+                    
+                    <p class="phone"><i class="fa-solid fa-phone"></i> (11) 96191-7900 - Segunda a Sexta, das 09h às 18h</p>
+                    <p class="email"><i class="fa-solid fa-envelope"></i> contato@paivaecorrea.com.br</p>
+               <p><i class="fa-solid fa-triangle-exclamation alert-icon"></i> Atendimento presencial exclusivamente mediante agendamento prévio.</p>
                 </div>
 
             </div>
@@ -607,11 +639,11 @@
                 <a href="#" class="logo footer-logo">
                     <div class="logo-mark">PC</div>
                     <div class="logo-text">
-                        <span class="brand-name">PAIVA E CORRÊA</span>
-                        <span class="brand-sub">ADVOGADOS ASSOCIADOS</span>
+                        <span class="brand-name">PAIVA E Correa</span>
+                        <span class="brand-sub">Sociedade de Advogados</span>
                     </div>
                 </a>
-                <p>Desde 2018 prestando assessoria jurídica consultiva e contenciosa com ética, agilidade e excelência técnica.</p>
+              <!--  <p>Desde 2018 prestando assessoria jurídica consultiva e contenciosa com ética, agilidade e excelência técnica.</p> -->
             </div>
 
             <div class="footer-col">
@@ -620,7 +652,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#sobre">Escritório</a></li>
                     <li><a href="#atuacao">Áreas de Atuação</a></li>
-                    <li><a href="#informativos">Informativos</a></li>
+                    <li><a href="#publicacoes">Publicações</a></li>
                     <li><a href="#equipe">Nossa Equipe</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
@@ -647,7 +679,7 @@
 
         <div class="footer-bottom">
             <div class="container footer-bottom-inner">
-                <p>&copy; 2026 <strong>Paiva e Corrêa Advogados</strong>. Todos os direitos reservados.</p>
+                <p>&copy; 2026 <strong>Paiva e Correa Advogados</strong>. Todos os direitos reservados.</p>
                 <p class="disclaimer">A cópia ou reprodução não autorizada de imagens, textos e conteúdos deste site é estritamente proibida.</p>
             </div>
         </div>
