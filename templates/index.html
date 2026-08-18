@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
     <title>Paiva & Correa | Sociedade de Advogados</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="static/img/favicon.png">
@@ -17,6 +18,7 @@
     <!-- ================================================================= -->
     <!-- GOOGLE TAG (gtag.js) - Google Analytics 4 & Google Ads            -->
     <!-- ================================================================= -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
   function closeAlert() {
@@ -439,103 +441,100 @@ Combinamos profundo conhecimento legal, visão de negócios e atendimento próxi
 
 
     <!-- Team Section -->
-    <section class="team" id="equipe">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle">CORPO JURÍDICO</span>
-                <h2>Talento Técnico & Visão Multidisciplinar</h2>
-                <p class="section-desc">Nossa estrutura reúne advogados associados, consultores e especialistas altamente qualificados, preparados para conduzir demandas complexas em todo o Brasil com agilidade, ética e precisão.</p>
-                <div class="header-divider"></div>
+<!-- Team Section -->
+<section class="team" id="equipe">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-subtitle">CORPO JURÍDICO</span>
+            <h2>Sócias</h2>
+            <div class="header-divider"></div>
+        </div>
+
+<div class="socias-container">
+    <!-- Card Kamila Paiva -->
+    <div class="socia-row" onclick="openSociaModal('kamila')">
+        <div class="socia-sidebar">
+            <div class="socia-img-wrapper">
+                <img src="{{ url_for('static', filename='img/kamila.jpeg') }}" alt="Kamila Paiva">
+            </div>
+        </div>
+        <div class="socia-content">
+            <div class="socia-header-info">
+                <h3>Kamila Paiva</h3>
+                <!--<span class="socia-role">Sócia Fundadora</span>-->
+            </div>
+            
+            <div class="socia-info-columns">
+                <div class="info-column">
+                    <h4>Contato</h4>
+                    <p><i class="fa-solid fa-phone"></i> +55 (11) 93286-1852</p>
+                    <p><i class="fa-solid fa-envelope"></i> kamila@paivaecorrea.com.br</p>
+                </div>
+                <div class="info-column">
+                    <h4>Áreas de Atuação</h4>
+                    <p>• Direito Bancário & Regulatório Financeiro</p>
+                    <p>• Compliance & Contencioso Estratégico</p>
+                </div>
             </div>
 
-            <div class="equipe-container">
-                <h2 class="section-title">Sócias</h2>
-
-                <!-- Card 1: Kamila Paiva -->
-                <div class="lawyer-card">
-                    <img src="static/img/kamila.jpeg" alt="Kamila Paiva" class="lawyer-photo">
-                    <div class="lawyer-info">
-                        <div class="lawyer-header">
-                            <h3 class="lawyer-name">Kamila Paiva</h3>
-                            <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        </div>
-                        <a href="mailto:kamila@paivaecorrea.com.br" class="lawyer-email">Kamila@paivaecorrea.com.br</a>
-                        
-                        <p class="lawyer-bio">
-                            <strong>Kamila Paiva</strong> é sócia fundadora do Paiva & Correa Sociedade de Advogados e advogada com mais de 16 anos de atuação no direito bancário e regulatório financeiro. É membra da Associação dos Advogados de São Paulo (AASP) e da Comissão de Direito Bancário da OAB-SP.<br><br>
-                            Atua no atendimento jurídico a instituições financeiras, instituições de pagamento, empresas e pessoas físicas, da conformidade regulatória a litígios bancários, empresariais, consumeristas e imobiliários.
-                        </p>
-
-                        <!-- Destaques Formação e Certificações -->
-                        <div class="highlight-box">
-                            <h4><i class="fa-solid fa-graduation-cap"></i> Formação Acadêmica</h4>
-                            <ul>
-                                <li>Bacharel em Direito — Universidade Bandeirante de São Paulo</li>
-                                <li>Pós-graduação em Direito e Processo Tributário — Escola Paulista de Direito</li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h4><i class="fa-solid fa-certificate"></i> Certificações & Cursos Complementares</h4>
-                            <ul class="cert-list">
-                                <li>Governança Regulatória e Cláusulas Contratuais (PUC)</li>
-                                <li>Governança Regulatória, Prevenção a Fraude e Anticorrupção (LEC)</li>
-                                <li>Extensão em Direito de Proteção de Dados (PUC)</li>
-                                <li>Extensão em Direitos Financeiros e Crimes (PUC)</li>
-                                <li>Direito Empresarial e Nova Lei de Falências (PUC)</li>
-                                <li>Propriedade Intelectual para Startups (SEBRAE-SP)</li>
-                                <li>Extensão em Direito de Família e Sucessões (ESA)</li>
-                            </ul>
-                        </div>
-
-                        <div class="lawyer-buttons">
-                            <a href="mailto:kamila@paivaecorrea.com.br" class="btn-outline"><i class="fa-regular fa-envelope"></i> Entrar em Contato</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: Karla Correa (Invertido) -->
-                <div class="lawyer-card reverse">
-                    <img src="static/img/karla.jpeg" alt="Karla Correa" class="lawyer-photo">
-                    <div class="lawyer-info">
-                        <div class="lawyer-header">
-                            <h3 class="lawyer-name">Karla Correa</h3>
-                            <a href="#" class="linkedin-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        </div>
-                        <a href="mailto:karla@paivaecorrea.com.br" class="lawyer-email">Karla@paivaecorrea.com.br</a>
-                        
-                        <p class="lawyer-bio">
-                            <strong>Karla Correa</strong> é sócia fundadora do escritório Paiva & Correa Sociedade de Advogados. Graduada em 2009, possui forte expertise prática na condução de causas complexas e consultoria preventiva, unindo visão estratégica jurídica ao desenvolvimento institucional.
-                        </p>
-
-                        <!-- Destaques Áreas e Especializações -->
-                        <div class="highlight-box">
-                            <h4><i class="fa-solid fa-award"></i> Especialização e Pós-Graduação</h4>
-                            <ul>
-                                <li>Especialista em Direito Empresarial e Tributário</li>
-                                <li>Pós-Graduada em Terapia Integrativa: Desenvolvimento Humano como Modelo de Negócio</li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h4><i class="fa-solid fa-scale-balanced"></i> Áreas Principais de Atuação</h4>
-                            <ul class="cert-list">
-                                <li>Direito de Família</li>
-                                <li>Erro Médico & Saúde</li>
-                                <li>Regularização Imobiliária</li>
-                                <li>Planejamento Patrimonial</li>
-                            </ul>
-                        </div>
-
-                        <div class="lawyer-buttons">
-                            <a href="mailto:karla@paivaecorrea.com.br" class="btn-outline"><i class="fa-regular fa-envelope"></i> Entrar em Contato</a>
-                        </div>
-                    </div>
-                </div>
-            </div>      
+       <!--     <div class="socia-bio-preview">
+                <h4>Bio:</h4>
+                <p>Kamila Paiva é sócia fundadora do Paiva e Correa Advogados, graduada em 2010, possui sólida experiência em Direito Bancário, Regulatório Financeiro e Compliance, atua na assessoria preventiva, consultiva e no contencioso estratégico para instituições financeiras, meios de pagamento, empresas e pessoas físicas. É membra da Associação dos Advogados de São Paulo (AASP), das Comissões de Direito Bancário e de Direito do Consumidor da OAB/SP.</p>
+            </div>
+-->
+            <button class="btn-profile">
+                Ver Perfil Completo <i class="fa-solid fa-arrow-right"></i>
+            </button>
         </div>
-    </section>
+    </div>
 
+    <!-- Card Karla Correa -->
+    <div class="socia-row reverse" onclick="openSociaModal('karla')">
+        <div class="socia-sidebar">
+            <div class="socia-img-wrapper">
+                <img src="{{ url_for('static', filename='img/karla.jpeg') }}" alt="Karla Correa">
+            </div>
+        </div>
+        <div class="socia-content">
+            <div class="socia-header-info">
+                <h3>Karla Correa</h3>
+               <!-- <span class="socia-role">Sócia Fundadora</span>-->
+            </div>
+
+            <div class="socia-info-columns">
+                <div class="info-column">
+                    <h4>Contato</h4>
+                    <p><i class="fa-solid fa-phone"></i> +55 (11) 96191-7900</p>
+                    <p><i class="fa-solid fa-envelope"></i> karla@paivaecorrea.com.br</p>
+                </div>
+                <div class="info-column">
+                    <h4>Áreas de Atuação</h4>
+                    <p>• Contencioso Cível e Empresarial</p>
+                    <p>• Consultoria Preventiva e Gestão de Conflitos</p>
+                </div>
+            </div>
+<!--
+            <div class="socia-bio-preview">
+                <h4>Bio:</h4>
+                <p>Karla Correa é sócia fundadora do Paiva e Correa Advogados. Graduada em 2009, possui ampla bagagem na condução de causas complexas, destaca-se pela visão estratégica no contencioso e na consultoria preventiva. Sua atuação combina forte rigor técnico em demandas cíveis e empresariais com foco em desenvolvimento institucional e gestão estratégica de conflitos.</p>
+            </div>
+-->
+            <button class="btn-profile">
+                Ver Perfil Completo <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+    </div>
+</section>
+
+<!-- Modal de Perfil Completo -->
+<div class="modal-profile" id="sociaModal">
+    <div class="modal-profile-content">
+        <button class="modal-profile-close" onclick="closeSociaModal()">&times;</button>
+        <div id="sociaModalBody"></div>
+    </div>
+</div>
     <!-- Stats / Counter Section 
     <section class="stats">
         <div class="container stats-grid">
@@ -607,8 +606,18 @@ Combinamos profundo conhecimento legal, visão de negócios e atendimento próxi
                     </div>
                     <div class="form-group full-width">
                         <label for="mensagem">Mensagem *</label>
-                        <textarea id="mensagem" rows="4" required placeholder="Descreva sucintamente a sua necessidade..."></textarea>
+                        <textarea id="mensagem" rows="4" required placeholder=""></textarea>
+                    <div class="form-group lgpd-group">
+    <label class="checkbox-container">
+        <input type="checkbox" name="lgpd_consent" id="lgpd_consent" required>
+        <span class="checkmark"></span>
+        <span class="checkbox-label">
+            Ao enviar esta mensagem, você concorda com o tratamento dos seus dados pessoais para a finalidade exclusiva de atendimento do seu contato, nos termos da nossa <a href="/politica-de-privacidade" target="_blank">Política de Privacidade</a>.
+        </span>
+    </label>
+</div>
                     </div>
+             
                     <div class="form-group full-width">
                         <button type="submit" class="btn btn-primary btn-block">Consulte Nossa Equipe</button>
                     </div>
