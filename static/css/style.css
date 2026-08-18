@@ -19,6 +19,23 @@
 body {
     color: var(--text-dark);
     background-color: var(--bg-light);
+    font-family: 'Montserrat', sans-serif;
+    color: #1a202c;
+}
+
+h1, h2, h3, h4, .logo, .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: 1px; /* Dá o toque refinado e espaçado */
+}
+
+.logo-subtitle, .hero-badge, .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Espaçamento bem amplo igual à imagem */
+    color: #c5a059;      /* Tom dourado da imagem */
 }
 
 /* Top Bar & Nav */
@@ -69,6 +86,472 @@ body {
     flex-direction: row-reverse;
 }
 
+/* Layout da Seção de Sócias */
+.socias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.socia-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+    padding: 30px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.socia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    border-color: var(--accent-color);
+}
+
+/* Foto Retangular Bem Cortada (Se quiser redonda, altere border-radius para 50%) */
+.socia-img-wrapper {
+    width: 180px;
+    height: 220px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 4px; 
+    border: 2px solid var(--accent-color);
+}
+
+.socia-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.socia-summary h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.socia-role {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.socia-contact {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.socia-contact p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.socia-contact i {
+    color: var(--accent-color);
+}
+
+.btn-profile {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.socia-card:hover .btn-profile {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #ffffff;
+}
+
+/* Modal de Perfil Estilo André Rizk */
+.modal-profile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-profile-content {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 6px;
+    max-width: 850px;
+    width: 100%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-profile-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.profile-header {
+    display: flex;
+    gap: 30px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.profile-avatar {
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.profile-meta h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.profile-meta .subtitle {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.profile-contact-list {
+    list-style: none;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.profile-contact-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-contact-list i {
+    color: var(--accent-color);
+}
+
+.profile-body-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.profile-section-title {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+.profile-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.profile-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.profile-list li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.7rem;
+    top: 2px;
+}
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+/* Container de Linhas das Sócias */
+.socias-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+/* Bloco Horizontal Estilo André Rizk */
+.socia-row {
+    display: flex;
+    background: #ffffff;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Inverte a ordem da segunda sócia (foto fica na direita) */
+.socia-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.socia-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color, #c5a059);
+}
+
+/* Sidebar com Foto Arredondada */
+.socia-sidebar {
+    background-color: #fcfbf9;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--border-color, #eee);
+    min-width: 240px;
+}
+
+.socia-row.reverse .socia-sidebar {
+    border-right: none;
+    border-left: 1px solid var(--border-color, #eee);
+}
+
+/* Foto Arredondada (Circle / Oval) */
+.socia-img-wrapper {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-color, #c5a059);
+}
+
+.socia-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Conteúdo do Card */
+.socia-content {
+    padding: 30px 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.socia-header-info {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.socia-header-info h3 {
+    font-family: var(--font-heading, serif);
+    font-size: 1.8rem;
+    color: var(--primary-color, #1a2b4c);
+    margin-bottom: 4px;
+}
+
+.socia-role {
+    font-size: 0.9rem;
+    color: var(--accent-color, #c5a059);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Colunas de Informação Interna */
+.socia-grid-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.info-block h4 {
+    font-size: 0.95rem;
+    color: var(--primary-color, #1a2b4c);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.info-block p {
+    font-size: 0.88rem;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.info-block i {
+    color: var(--accent-color, #c5a059);
+    margin-right: 6px;
+}
+
+/* Botão de Ação */
+.btn-profile {
+    align-self: flex-start;
+    background: transparent;
+    color: var(--primary-color, #1a2b4c);
+    border: 1px solid var(--primary-color, #1a2b4c);
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.socia-row:hover .btn-profile {
+    background-color: var(--accent-color, #c5a059);
+    border-color: var(--accent-color, #c5a059);
+    color: #ffffff;
+}
+
+/* Responsividade para Telas Menores/Celulares */
+@media (max-width: 768px) {
+    .socia-row, .socia-row.reverse {
+        flex-direction: column;
+    }
+
+    .socia-sidebar {
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .socia-grid-info {
+        grid-template-columns: 1fr;
+    }
+}
+/* Estilização da Bio dentro do Card Principal */
+.socia-bio-preview {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-top: 1px dashed var(--border-color, #e0e0e0);
+    padding-top: 12px;
+}
+
+.socia-bio-preview h4 {
+    font-size: 0.95rem;
+    color: var(--primary-color, #1a2b4c);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.socia-bio-preview p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+}
+
+/* Ajuste das Áreas de Atuação */
+.info-block p {
+    font-size: 0.88rem;
+    color: #444;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+/* Layout em 2 Colunas Lado a Lado para Contato e Áreas de Atuação */
+.socia-info-columns {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 15px;
+}
+
+.info-column {
+    flex: 1;
+}
+
+.info-column h4 {
+    font-size: 0.95rem;
+    color: var(--primary-color, #1a2b4c);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.info-column p {
+    font-size: 0.88rem;
+    color: #555;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.info-column i {
+    color: var(--accent-color, #c5a059);
+    margin-right: 6px;
+}
+
+/* Seção da Bio Ajustada */
+.socia-bio-preview {
+    border-top: 1px solid var(--border-color, #eee);
+    padding-top: 12px;
+    margin-bottom: 15px;
+}
+
+.socia-bio-preview h4 {
+    font-size: 0.95rem;
+    color: var(--primary-color, #1a2b4c);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.socia-bio-preview p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Responsividade para Telas Menores */
+@media (max-width: 768px) {
+    .socia-info-columns {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
 .lawyer-photo {
     width: 45%;
     height: 380px;

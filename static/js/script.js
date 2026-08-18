@@ -18,7 +18,104 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+// Dados das Sócias
+const sociasData = {
+    kamila: {
+        name: "Kamila Paiva",
+        role: "Sócia Fundadora",
+        email: "kamila@paivaecorrea.com.br",
+        phone: "+55 (11) 93286-1852",
+        img: "static/img/kamila.jpeg",
+        bio: "Kamila Paiva é sócia fundadora do Paiva e Correa Advogados, graduada em 2010, possui sólida experiência em Direito Bancário, Regulatório Financeiro e Compliance, atua na assessoria preventiva, consultiva e no contencioso estratégico para instituições financeiras, meios de pagamento, empresas e pessoas físicas. É membra da Associação dos Advogados de São Paulo (AASP), das Comissões de Direito Bancário e de Direito do Consumidor da OAB/SP.",
+        academic: [
+            "Bacharel em Direito pela Universidade Bandeirante de São Paulo",
+            "Pós-graduação em Direito e Processo Tributário pela Escola Paulista de Direito (EPD)"
+        ],
+        certifications: [
+            "Governança Regulatória, Prevenção à Fraude e Anticorrupção — LEC",
+            "Governança Regulatória e Cláusulas Contratuais — PUC",
+            "Direito Financeiro, Proteção de Dados (LGPD) e Crimes Financeiros — PUC",
+            "Direito Empresarial e Nova Lei de Falências — PUC",
+            "Propriedade Intelectual para Startups — SEBRAE-SP",
+            "Direito de Família e Sucessões — Escola Superior de Advocacia (ESA)"
+        ]
+    },
+    karla: {
+        name: "Karla Correa",
+        role: "Sócia Fundadora",
+        email: "karla@paivaecorrea.com.br",
+        phone: "+55 (11) 96191-7900",
+        img: "static/img/karla.jpeg",
+        bio: "Karla Correa é sócia fundadora do Paiva e Correa Advogados. Graduada em 2009, possui ampla bagagem na condução de causas complexas, destaca-se pela visão estratégica no contencioso e na consultoria preventiva. Sua atuação combina forte rigor técnico em demandas cíveis e empresariais com foco em desenvolvimento institucional e gestão estratégica de conflitos.",
+        academic: [
+            "Bacharel em Direito pela Universidade XXX",
+            "Especialista em Direito Empresarial e Tributário",
+            "Pós-graduada em Desenvolvimento Humano e Gestão Estratégica"
+        ],
+        certifications: [
+            "Pós-Graduação em Desenvolvimento Humano e Gestão Estratégica",
+            "Extensão em Planejamento Patrimonial e Sucessório",
+            "Extensão em Direito Imobiliário e Regularização de Imóveis",
+            "Capacitação em Responsabilidade Civil e Direito da Saúde (Erro Médico)"
+        ]
+    }
+};
 
+// Função global para abrir o modal
+window.openSociaModal = function(key) {
+    const modal = document.getElementById('sociaModal');
+    const modalBody = document.getElementById('sociaModalBody');
+    const data = sociasData[key];
+
+    if (modal && modalBody && data) {
+        const academicList = data.academic.map(item => `<li>${item}</li>`).join('');
+        const certList = data.certifications.map(item => `<li>${item}</li>`).join('');
+
+        modalBody.innerHTML = `
+            <div class="profile-header">
+                <img src="${data.img}" alt="${data.name}" class="profile-avatar">
+                <div class="profile-meta">
+                    <h2>${data.name}</h2>
+                    <span class="subtitle">${data.role}</span>
+                    <ul class="profile-contact-list">
+                        <li><i class="fa-solid fa-envelope"></i> ${data.email}</li>
+                        <li><i class="fa-solid fa-phone"></i> ${data.phone}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="profile-body-text">${data.bio}</p>
+
+            <h3 class="profile-section-title">Formação Acadêmica</h3>
+            <ul class="profile-list">
+                ${academicList}
+            </ul>
+
+            <h3 class="profile-section-title">Certificações & Especializações</h3>
+            <ul class="profile-list">
+                ${certList}
+            </ul>
+        `;
+
+        modal.style.display = 'flex';
+    }
+};
+
+// Função global para fechar o modal
+window.closeSociaModal = function() {
+    const modal = document.getElementById('sociaModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+};
+
+// Listener global para fechar modais ao clicar fora
+window.addEventListener('click', function(event) {
+    const sociaModal = document.getElementById('sociaModal');
+    if (event.target === sociaModal) {
+        sociaModal.style.display = 'none';
+    }
+});
     // Search Drawer Toggle
     const searchBtn = document.getElementById('searchBtn');
     const searchDrawer = document.getElementById('searchDrawer');
