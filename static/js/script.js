@@ -50,7 +50,7 @@ const sociasData = {
         img: "static/img/karla.jpeg",
         bio: "Karla Correa é sócia fundadora do Paiva e Correa Advogados. Graduada em 2009, possui ampla bagagem na condução de causas complexas, destaca-se pela visão estratégica no contencioso e na consultoria preventiva. Sua atuação combina forte rigor técnico em demandas cíveis e empresariais com foco em desenvolvimento institucional e gestão estratégica de conflitos.",
         academic: [
-            "Bacharel em Direito pela Universidade Pontifícia Universidade Católica / Nove de Julho",
+            "Bacharel em Direito pela Pontifícia Universidade Católica / Nove de Julho",
             "Especialista em Direito Empresarial e Tributário",
             "Pós-graduada em Desenvolvimento Humano e Gestão Estratégica"
         ],
