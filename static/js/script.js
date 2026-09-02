@@ -25,6 +25,7 @@ const sociasData = {
         role: "Sócia Fundadora",
         email: "kamila@paivaecorrea.com.br",
         phone: "+55 (11) 93286-1852",
+        phonei: "5511932861852",
         img: "static/img/kamila.jpeg",
         bio: "Kamila Paiva é sócia fundadora do Paiva e Correa Advogados, graduada em 2010, possui sólida experiência em Direito Bancário, Regulatório Financeiro e Compliance, atua na assessoria preventiva, consultiva e no contencioso estratégico para instituições financeiras, meios de pagamento, empresas e pessoas físicas. É membra da Associação dos Advogados de São Paulo (AASP), das Comissões de Direito Bancário e de Direito do Consumidor da OAB/SP.",
         academic: [
@@ -45,10 +46,11 @@ const sociasData = {
         role: "Sócia Fundadora",
         email: "karla@paivaecorrea.com.br",
         phone: "+55 (11) 96191-7900",
+        phonei: "5511961917900",
         img: "static/img/karla.jpeg",
         bio: "Karla Correa é sócia fundadora do Paiva e Correa Advogados. Graduada em 2009, possui ampla bagagem na condução de causas complexas, destaca-se pela visão estratégica no contencioso e na consultoria preventiva. Sua atuação combina forte rigor técnico em demandas cíveis e empresariais com foco em desenvolvimento institucional e gestão estratégica de conflitos.",
         academic: [
-            "Bacharel em Direito pela Universidade XXX",
+            "Bacharel em Direito pela Universidade Pontifícia Universidade Católica / Nove de Julho",
             "Especialista em Direito Empresarial e Tributário",
             "Pós-graduada em Desenvolvimento Humano e Gestão Estratégica"
         ],
@@ -79,7 +81,13 @@ window.openSociaModal = function(key) {
                     <span class="subtitle">${data.role}</span>
                     <ul class="profile-contact-list">
                         <li><i class="fa-solid fa-envelope"></i> ${data.email}</li>
-                        <li><i class="fa-solid fa-phone"></i> ${data.phone}</li>
+                        <li><i class="fa-solid fa-phone"></i>
+                        <p><a href="https://wa.me/${data.phonei}?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20atendimento%20jur%C3%ADdico.%20Aguardarei%20o%20retorno%20da%20equipe." target="_blank" style="text-decoration: none; color: inherit;">
+   ${data.phone}
+</a></p>
+                        
+                        </li>
+                               
                     </ul>
                 </div>
             </div>
