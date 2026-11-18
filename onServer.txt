@@ -1,5 +1,5 @@
 python3 app.py
 git init
-git branch -M main
+git branch -M origin/main
 git add .
 git commit -m "Primeiro commit do projeto"
