@@ -1,4 +1,9 @@
 python3 app.py
+
+
+git config --global user.name "Ivan"
+git config --global user.email "ivandiegosanchez@outlook.com"
+git remote add origin https://github.com/ivansanchez/paiva-correa-site.git
 git init
 git branch -M main
 git add .
