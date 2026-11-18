@@ -1,0 +1,22 @@
+{% extends 'admin/master.html' %}
+
+{% block branding %}
+<!-- Remove a logo/título "Painel de Notícias" do topo -->
+{% endblock %}
+
+{% block main_menu %}
+<!-- Remove o menu "Home" e "Publicações e Notícias" do topo -->
+{% endblock %}
+
+{% block head_css %}
+    {{ super() }}
+    <style>
+        /* Garante que qualquer resquício da barra superior seja ocultado */
+        .navbar, .navbar-inverse, .navbar-static-top {
+            display: none !important;
+        }
+        body {
+            padding-top: 20px !important;
+        }
+    </style>
+{% endblock %}

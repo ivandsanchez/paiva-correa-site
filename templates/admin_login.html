@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Restrito | Paiva & Correa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0b1329; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .login-card { background: #fff; padding: 40px; border-radius: 8px; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-align: center; }
+        .login-card h2 { margin-bottom: 10px; color: #0b1329; font-size: 1.5rem; }
+        .login-card p { color: #666; font-size: 0.9rem; margin-bottom: 25px; }
+        .btn-google { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: #fff; color: #444; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-weight: 600; text-decoration: none; box-sizing: border-box; transition: background 0.2s; }
+        .btn-google:hover { background: #f8f9fa; }
+        .alert { color: #d9534f; background: #fdf2f2; padding: 10px; border-radius: 4px; font-size: 0.85rem; margin-bottom: 20px; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>Área Restrita</h2>
+        <p>Acesso exclusivo para sócias autorizadas.</p>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Botão que direciona para a rota do Google OAuth -->
+        <a href="{{ url_for('google_login') }}" class="btn-google">
+            <i class="fa-brands fa-google" style="color: #ea4335;"></i> Entrar com a Conta Google
+        </a>
+    </div>
+</body>
+</html>

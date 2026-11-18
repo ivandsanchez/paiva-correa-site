@@ -102,11 +102,17 @@
         </div>
 
         <!-- Search Bar Drawer -->
-        <div class="search-drawer" id="searchDrawer">
+<!-- Search Bar Drawer -->
+        <div class="search-drawer" id="searchDrawer" style="position: relative;">
             <div class="container search-drawer-inner">
                 <input type="text" placeholder="Digite o que procura e pressione Enter...">
-                <button class="search-close" id="searchClose">&times;</button>
+                <button class="search-close" id="searchClose">×</button>
             </div>
+            
+            <!-- Chavinha discreta na extrema lateral direita, fora da caixa de pesquisa -->
+            <a href="/admin/" class="admin-secret-key" title="Acesso Restrito" aria-label="Acesso Administrativo">
+                <i class="fa-solid fa-key"></i>
+            </a>
         </div>
     </header>
 
@@ -252,7 +258,7 @@ Combinamos profundo conhecimento legal, visão de negócios e atendimento próxi
         </div>
     </section>
 
-    <!-- SEÇÃO ADICIONADA: INFORMATIVOS E DIREITOS (ESTILO FOLHEÁVEL DE REDE SOCIAL) -->
+<!-- SEÇÃO DE PUBLICAÇÕES DINÂMICA (TOP 5 MATÉRIAS EM UMA ÚNICA DIV RESPONSIVA) -->
     <section class="news-slider-section" id="publicacoes">
         <div class="container">
             <div class="section-header text-center">
@@ -262,183 +268,49 @@ Combinamos profundo conhecimento legal, visão de negócios e atendimento próxi
                 <div class="header-divider"></div>
             </div>
 
-            <div class="slider-wrapper">
-                <div class="cards-container" id="flipContainer">
-                    <!-- Card 1 -->
-                    <div class="flip-card active">
-                        <span class="card-tag">Justiça do Trabalho</span>
-                        <h3 class="card-title-text">Faltar ao trabalho por causa de violência doméstica não é abandono de emprego.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">A lei protege o vínculo. E há decisão do STF definindo quem paga o período de afastamento.</p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="flip-card">
-                        <span class="card-tag">O Caso</span>
-                        <h3 class="card-title-text">Ela se ausentou após ameaças de morte. A empresa aplicou justa causa por abandono.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">Havia boletim de ocorrência e pedido de medida protetiva de urgência — ambos comunicados à empregadora.</p>
-                        <p class="card-body-text" style="margin-top: 10px;">Em juízo, testemunha da própria empresa confirmou que havia pleno conhecimento do contexto de violência.</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="flip-card card-navy">
-                        <span class="card-tag">A Decisão</span>
-                        <h3 class="card-title-text">A dispensa foi revertida, com indenização por dano moral.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">Para a sentença, não é razoável exigir a regularização formal e documental das faltas de quem está nesse contexto — e não havia qualquer intenção de romper o vínculo.</p>
-                        <span class="card-footer-note">Sentença de 1º grau · pendente de recurso</span>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="flip-card">
-                        <span class="card-tag">O Que Já Diz A Lei</span>
-                        <h3 class="card-title-text">O vínculo é mantido quando o afastamento é necessário.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">A Lei Maria da Penha assegura a manutenção do vínculo empregatício quando a mulher precisa se me afastar do local de trabalho para preservar sua integridade, por até seis meses.</p>
-                        <span class="card-footer-note">art. 9º, § 2º, II, da Lei 11.340/2006</span>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="flip-card card-navy">
-                        <span class="card-tag">E quem paga esse período?</span>
-                        <h3 class="card-title-text">O STF já definiu.</h3>
-                        <div class="card-divider"></div>
-                        <ul class="card-bullets">
-                            <li>Os 15 primeiros dias ficam a cargo do empregador.</li>
-                            <li>O período seguinte é custeado pelo INSS.</li>
-                            <li>A trabalhadora não fica sem renda.</li>
-                        </ul>
-                        <span class="card-footer-note">Tema 1.370 · repercussão geral</span>
-                    </div>
-
-                    <!-- Card 6 -->
-                    <div class="flip-card">
-                        <span class="card-tag">Para a Empresa</span>
-                        <h3 class="card-title-text">Ciente do contexto, presumir abandono é assumir risco.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">Reversão da justa causa, verbas rescisórias, indenização por dano moral e exposição reputacional.</p>
-                        <p class="card-body-text" style="margin-top: 10px;">O caminho é formalizar o afastamento previsto em lei — não interpretar a ausência como desinteresse pelo emprego.</p>
-                    </div>
-
-                    <!-- Card 7 -->
-                    <div class="flip-card">
-                        <span class="card-tag">Se está acontecendo com você</span>
-                        <h3 class="card-title-text">Guarde tudo.</h3>
-                        <div class="card-divider"></div>
-                        <ul class="card-bullets">
-                            <li>Boletim de ocorrência</li>
-                            <li>Pedido ou decisão de medida protetiva</li>
-                            <li>Registro da comunicação à empresa</li>
-                            <li>E-mails, mensagens e atestados</li>
-                            <li>Datas das ausências e o motivo</li>
-                        </ul>
-                        <p class="card-body-text" style="font-style: italic; margin-top: 10px;">Documento é o que sustenta o direito depois.</p>
-                    </div>
-
-                    <!-- Card 8 -->
-                    <div class="flip-card card-navy">
-                        <span class="card-tag">Se você está em situação de violência</span>
-                        <h3 class="card-title-text highlight-number">Ligue 180.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">Gratuito, 24 horas por dia, todos os dias. A ligação não aparece na conta telefônica.</p>
-
-
-                        <span class="card-footer-note">Paiva & Correa Sociedade de Advogados · Direito do Trabalho<br>Conteúdo informativo. Não substitui orientação jurídica individualizada.</span>
-                    </div>
-                    <div class="flip-card active card-navy">
-                        <span class="card-tag">Salário Atrasado</span>
-                        <h3 class="card-title-text">Está há meses sem receber? O maior erro é pedir demissão.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">Existe outro caminho — e ele muda tudo o que você recebe no fim.</p>
-                        <span class="card-footer-note">Paiva & Correa Sociedade de Advogados · 1/10</span>
-                    </div>
-                      <div class="flip-card">
-                        <span class="card-tag">Por que pedir demissão é o pior caminho</span>
-                        <h3 class="card-title-text">Você sai como se a culpa fosse sua.</h3>
-                        <div class="card-divider"></div>
-                        <ul class="card-bullets">
-                            <li>Perde o aviso prévio</li>
-                            <li>Perde a multa de 40% do FGTS</li>
-                            <li>Perde o seguro-desemprego</li>
-                            <li>E ainda enfraquece qualquer pedido de indenização</li>
-                        </ul>
-                        <span class="card-footer-note">Paiva & Correa Sociedade de Advogados · 2/10</span>
-                    </div>
-                    <div class="flip-card">
-                        <span class="card-tag">O Caminho Certo</span>
-                        <h3 class="card-title-text">Rescisão indireta: a justa causa do empregador.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">Quando a empresa descumpre o contrato, você pode romper o vínculo e sair recebendo tudo — como numa dispensa sem justa causa.</p>
-                        <p class="card-body-text" style="margin-top: 10px;"><strong>Não pagar salário está expressamente na lei como um desses casos.</strong></p>
-                        <span class="card-footer-note">art. 483, "d", da CLT</span>
-                    </div>
-
-                    <!-- MATÉRIA 1 - SLIDE 4: ENTENDIMENTO DO TST -->
-                    <div class="flip-card card-navy">
-                        <span class="card-tag">Entendimento do TST</span>
-                        <h3 class="card-title-text">Atraso reiterado de salário gera dano presumido.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">Salário é meio de subsistência. O atraso repetido cria a angústia de não conseguir quitar as despesas do mês.</p>
-                        <p class="card-body-text" style="margin-top: 10px; color: var(--accent-gold);"><strong>Nessa situação, o dano é evidente. Não precisa ser comprovado.</strong></p>
-                        <span class="card-footer-note">Jurisprudência TST · Dano Moral Presumido</span>
-                    </div>
-
-                    <!-- MATÉRIA 2: VIOLÊNCIA DOMÉSTICA E TRABALHO -->
-                    <div class="flip-card">
-                        <span class="card-tag">Justiça do Trabalho</span>
-                        <h3 class="card-title-text">Faltar ao trabalho por causa de violência doméstica não é abandono de emprego.</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">A Lei Maria da Penha assegura a manutenção do vínculo empregatício por até seis meses quando necessário o afastamento.</p>
-                        <span class="card-footer-note">art. 9º, § 2º, II, da Lei 11.340/2006</span>
-                    </div>
-
-                    <div class="flip-card card-navy">
-                        <span class="card-tag">Decisão STF</span>
-                        <h3 class="card-title-text">Quem custeia o afastamento?</h3>
-                        <div class="card-divider"></div>
-                        <ul class="card-bullets">
-                            <li>Os 15 primeiros dias ficam a cargo do empregador.</li>
-                            <li>O período seguinte é custeado pelo INSS.</li>
-                            <li>A trabalhadora não fica sem renda.</li>
-                        </ul>
-                        <span class="card-footer-note">Tema 1.370 · Repercussão Geral STF</span>
-                    </div>
-
-                        <div class="flip-card card-navy">
-                        <span class="card-tag">Direito Regulatório Financeiro</span>
-                        <h3 class="card-title-text">Ficha de Responsabilidade de Administrador (BCB)</h3>
-                        <div class="card-divider"></div>
-                        <p class="card-body-text">Análise completa sobre o processo sancionador da Lei nº 13.506/2017 e Resolução BCB nº 131/2021 aplicada a diretores e conselheiros.</p>
+            <!-- Container Principal Responsivo para as Top 5 Matérias -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                {% if noticias %}
+                    {% for noticia in noticias[:5] %}
+                    <div style="background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; display: flex; flex-direction: column; transition: transform 0.3s ease;">
                         
-                        <div class="pdf-download-box">
-                            <p style="font-size: 0.8rem; color: #E2E8F0;">Faça o download do e-book informativo completo em formato PDF:</p>
-                            <!-- LINK DE DOWNLOAD DO PDF RESERVADO ABAIXO -->
-                            <a href="ficha-responsabilidade-administrador-bcb.pdf" download class="btn-download-pdf">
-                                <i class="fa-solid fa-file-pdf"></i> Baixar Material (PDF)
-                            </a>
+                        <!-- Imagem de Capa (se houver) -->
+                        {% if noticia.imagem %}
+                        <div style="height: 200px; overflow: hidden; background: #0b1329;">
+                            <img src="{{ url_for('static', filename='uploads/noticias/' + noticia.imagem) }}" alt="{{ noticia.titulo }}" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <span class="card-footer-note">Paiva & Correa Sociedade de Advogados · Regulatório BCB</span>
+                        {% endif %}
+
+                        <!-- Conteúdo do Card -->
+                        <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: #c5a880; font-weight: 600; margin-bottom: 10px; font-family: 'Montserrat', sans-serif;">
+                                {{ noticia.data_publicacao.strftime('%d/%m/%Y') }}
+                            </span>
+                            
+                            <h3 style="font-family: 'Cinzel', serif; font-size: 1.25rem; color: #0b1329; margin-bottom: 15px; line-height: 1.4; font-weight: 700;">
+                                {{ noticia.titulo }}
+                            </h3>
+
+                            <p style="color: #555555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; flex-grow: 1;">
+                                {{ noticia.resumo }}
+                            </p>
+
+                            <!-- Botão Estilizado "Ler mais" -->
+                            <div style="margin-top: auto;">
+                                <a href="{{ url_for('detalhe_noticia', slug=noticia.slug) }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #0b1329; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 500; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; transition: background-color 0.2s;">
+                                    Ler mais <i class="fa-solid fa-arrow-right" style="color: #c5a880; font-size: 0.8rem;"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-
-                 
-
-
-                    
-                </div>
-
-                <!-- Navegação -->
-                <div class="slider-controls">
-                    <button class="slider-arrow" id="prevCardBtn" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="slider-dots" id="dotsContainer"></div>
-                    <button class="slider-arrow" id="nextCardBtn" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="text-align: center; color: #718096; grid-column: 1 / -1; padding: 40px;">Nenhuma publicação cadastrada no momento.</p>
+                {% endif %}
             </div>
- 
-        </div>
-        
-    </section>
 
+        </div>
+    </section>
 
     <!-- Team Section -->
 <!-- Team Section -->

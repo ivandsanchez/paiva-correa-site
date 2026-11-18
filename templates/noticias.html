@@ -1,0 +1,197 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <title>Publicações & Imprensa | Paiva & Correa Sociedade de Advogados</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+      function closeAlert() {
+        const alertBar = document.getElementById('securityAlert');
+        if (alertBar) {
+          alertBar.style.display = 'none';
+        }
+      }
+    </script>
+</head>
+<body>
+
+    <!-- Security Alert Bar (Idêntica ao index.html) -->
+    <div class="top-alert" id="securityAlert">
+        <div class="container alert-container">
+            <div class="alert-content">
+                <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
+                <span>
+                    Não solicitamos transferências financeiras, pagamentos de guias ou dados bancários por este canal. Caso receba qualquer mensagem suspeita, 
+                    valide as informações diretamente com o advogado responsável pelo seu caso ou pelo canal institucional.
+                </span>
+            </div>
+            <button class="alert-close" onclick="closeAlert()">×</button>
+        </div>
+    </div>
+
+    <!-- Main Header / Navigation (Idêntico ao index.html) -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <div class="logo-text">
+                    <span class="brand-name">PAIVA & CORREA</span>
+                    <span class="brand-sub">SOCIEDADE DE ADVOGADOS</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('home') }}#sobre">Escritório</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Áreas de Atuação</a></li>
+                    <li><a href="{{ url_for('home') }}#publicacoes" class="active">Publicações</a></li>
+                    <li><a href="{{ url_for('home') }}#equipe">Equipe</a></li>
+                    <li><a href="{{ url_for('home') }}#comoatuamos">Como atuamos</a></li>
+                    <li><a href="{{ url_for('home') }}#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-btn" id="searchBtn" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <!-- Search Bar Drawer -->
+           <div class="search-drawer" id="searchDrawer" style="position: relative;">
+            <div class="container search-drawer-inner">
+                <input type="text" placeholder="Digite o que procura e pressione Enter...">
+                <button class="search-close" id="searchClose">×</button>
+            </div>
+            
+            <!-- Chavinha discreta na extrema lateral direita, fora da caixa de pesquisa -->
+            <a href="/admin/" class="admin-secret-key" title="Acesso Restrito" aria-label="Acesso Administrativo">
+                <i class="fa-solid fa-key"></i>
+            </a>
+        </div>
+
+    <!-- Seção de Listagem Completa de Notícias e Publicações -->
+    <section class="news-slider-section" style="padding: 80px 0 100px 0; background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Publicações & Imprensa</span>
+                <h2>Artigos e Informativos Jurídicos</h2>
+                <p class="section-desc">Acompanhe análises especializadas, artigos e notas jurídicas elaboradas pela nossa equipe para manter você e seu negócio atualizados.</p>
+                <div class="header-divider"></div>
+            </div>
+
+            <!-- Grid com o Botão "Ler mais" no padrão visual do site -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px;">
+                {% if noticias %}
+                    {% for noticia in noticias %}
+                    <div style="background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                        
+                        <!-- Imagem de Capa (se houver) -->
+                        {% if noticia.imagem %}
+                        <div style="height: 220px; overflow: hidden; background: #0b1329;">
+                            <img src="{{ url_for('static', filename='uploads/noticias/' + noticia.imagem) }}" alt="{{ noticia.titulo }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        {% endif %}
+
+                        <!-- Conteúdo do Card -->
+                        <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: #c5a880; font-weight: 600; margin-bottom: 10px; font-family: 'Montserrat', sans-serif;">
+                                {{ noticia.data_publicacao.strftime('%d/%m/%Y') }}
+                            </span>
+                            
+                            <h3 style="font-family: 'Cinzel', serif; font-size: 1.35rem; color: #0b1329; margin-bottom: 15px; line-height: 1.4; font-weight: 700;">
+                                {{ noticia.titulo }}
+                            </h3>
+
+                            <p style="color: #555555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; flex-grow: 1;">
+                                {{ noticia.resumo }}
+                            </p>
+
+                            <!-- Botão Estilizado "Ler mais" com as cores do site -->
+                            <div style="margin-top: auto;">
+                                <a href="{{ url_for('detalhe_noticia', slug=noticia.slug) }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #0b1329; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 500; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; transition: background-color 0.2s;">
+                                    Ler mais <i class="fa-solid fa-arrow-right" style="color: #c5a880; font-size: 0.8rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="text-align: center; color: #718096; grid-column: 1 / -1; padding: 40px;">Nenhuma publicação cadastrada no momento.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Completo (Idêntico ao index.html) -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="{{ url_for('home') }}" class="logo footer-logo">
+                    <div class="logo-text">
+                        <span class="brand-name">PAIVA & CORREA</span>
+                        <span class="brand-sub">SOCIEDADE DE ADVOGADOS</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('home') }}#sobre">Escritório</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Áreas de Atuação</a></li>
+                    <li><a href="{{ url_for('home') }}#publicacoes">Publicações</a></li>
+                    <li><a href="{{ url_for('home') }}#equipe">Equipe</a></li>
+                    <li><a href="{{ url_for('home') }}#comoatuamos">Como atuamos</a></li>
+                    <li><a href="{{ url_for('home') }}#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Áreas de Atuação</h4>
+                <ul>
+                    <li><a href="{{ url_for('home') }}#atuacao">Família & Sucessões</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Direito Bancário, Regulatório Financeiro & Compliance</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Administrativo</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Contratual & Societário</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Cível & Consumidor</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Constitucional</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Trabalhista & Previdenciário</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Tributário</a></li>
+                    <li><a href="{{ url_for('home') }}#atuacao">Penal Empresarial</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Siga-nos</h4>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/paiva-correa-sociedade-de-advogados/?viewAsMember=true" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/paivaecorrea.adv/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=6158736587758" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>© 2026 <strong>Paiva & Correa Sociedade de Advogados</strong>. Todos os direitos reservados.</p>
+                <p class="disclaimer">A cópia ou reprodução não autorizada de imagens, textos e conteúdos deste site é estritamente proibida.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

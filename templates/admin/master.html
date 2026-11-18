@@ -1,0 +1,27 @@
+{% extends admin_base_template %}
+
+{% block page_body %}
+<div class="container{% if config.get('FLASK_ADMIN_FLUID_LAYOUT', False) %}-fluid{% endif %}">
+    <!-- Mantemos apenas o container principal, omitindo completamente a tag <nav> do menu superior -->
+    {% block messages %}
+        {{ layout.messages() }}
+    {% endblock %}
+
+    {% set render_ctx = h.resolve_ctx() %}
+    {% block body %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block head_css %}
+    {{ super() }}
+    <style>
+        /* Dá um respiro no topo já que o menu foi removido */
+        body {
+            padding-top: 30px;
+        }
+        /* Garante que qualquer navbar residual não apareça */
+        nav.navbar {
+            display: none !important;
+        }
+    </style>
+{% endblock %}
