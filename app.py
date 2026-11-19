@@ -28,6 +28,9 @@ from slugify import slugify
 from markupsafe import Markup
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+UPLOAD_FOLDER = os.path.join('static', 'uploads', 'noticias')
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
