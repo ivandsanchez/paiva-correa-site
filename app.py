@@ -26,8 +26,10 @@ from flask_login import (
 from flask_sqlalchemy import SQLAlchemy
 from slugify import slugify
 from markupsafe import Markup
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
 app.config["SECRET_KEY"] = "sua-chave-secreta-super-segura-aqui"
 
