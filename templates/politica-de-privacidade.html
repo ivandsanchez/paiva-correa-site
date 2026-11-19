@@ -1,0 +1,201 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <title>Política de Privacidade | Paiva & Correa Sociedade de Advogados</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+      function closeAlert() {
+        const alertBar = document.getElementById('securityAlert');
+        if (alertBar) {
+          alertBar.style.display = 'none';
+        }
+      }
+    </script>
+</head>
+<body>
+
+    <!-- Security Alert Bar -->
+    <div class="top-alert" id="securityAlert">
+        <div class="container alert-container">
+            <div class="alert-content">
+                <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
+                <span>
+                    Não solicitamos transferências financeiras, pagamentos de guias ou dados bancários por este canal. Caso receba qualquer mensagem suspeita, 
+                    valide as informações diretamente com o advogado responsável pelo seu caso ou pelo canal institucional.
+                </span>
+            </div>
+            <button class="alert-close" onclick="closeAlert()">×</button>
+        </div>
+    </div>
+
+    <!-- Main Header / Navigation -->
+    <header class="main-header" id="header" style="background-color: #0b1329;">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <div class="logo-text">
+                    <span class="brand-name">PAIVA & CORREA</span>
+                    <span class="brand-sub">SOCIEDADE DE ADVOGADOS</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#sobre">Escritório</a></li>
+                    <li><a href="/#atuacao">Áreas de Atuação</a></li>
+                    <li><a href="/#publicacoes">Publicações</a></li>
+                    <li><a href="/#equipe">Equipe</a></li>
+                    <li><a href="/#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="/#contato" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;">Fale Conosco</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header Hero -->
+    <section class="hero" style="padding: 80px 0; min-height: 40vh; background: linear-gradient(rgba(11,19,41,0.85), rgba(11,19,41,0.9)), url('{{ url_for("static", filename="img/paivaecorreaf.jpeg") }}') no-repeat center center/cover;">
+        <div class="container hero-container" style="text-align: center;">
+            <div class="hero-content" style="max-width: 800px; margin: 0 auto;">
+                <span class="hero-badge">LGPD & Compliance</span>
+                <h1 style="font-size: 2.5rem; margin-bottom: 15px;">Política de Privacidade e Proteção de Dados</h1>
+                <p>Nosso compromisso com a transparência, segurança e a conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section style="padding: 60px 0; background-color: #f8fafc; color: #333333;">
+        <div class="container" style="max-width: 900px; background: #ffffff; padding: 50px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+            
+            <!-- Destaque / Foto das Sócias -->
+            <div style="display: flex; flex-direction: column; md-flex-direction: row; gap: 30px; align-items: center; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid #e2e8f0;">
+                <div style="width: 100%; max-width: 350px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <img src="{{ url_for('static', filename='img/socias.jpeg') }}" alt="Karla Correa e Kamila Paiva - Sócias Fundadoras" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div style="flex: 1;">
+                    <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: #c5a880; font-weight: 600; font-family: 'Montserrat', sans-serif;">Governança e Sigilo Profissional</span>
+                    <h3 style="font-family: 'Cinzel', serif; font-size: 1.5rem; color: #0b1329; margin: 10px 0 15px 0;">Compromisso com a sua Privacidade</h3>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #555555;">
+                        O escritório <strong>Paiva & Correa Sociedade de Advogados</strong> pauta sua atuação pelo mais absoluto sigilo profissional, ética e rigor técnico. A proteção dos dados pessoais de nossos clientes, parceiros e visitantes é prioridade em todas as nossas frentes consultivas e contenciosas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="privacy-content" style="font-family: 'Montserrat', sans-serif; line-height: 1.8; font-size: 1rem; color: #4a5568;">
+                
+                <h2 style="font-family: 'Cinzel', serif; color: #0b1329; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px;">1. Introdução e Escopo</h2>
+                <p>
+                    Esta Política de Privacidade descreve como o <strong>Paiva & Correa Sociedade de Advogados</strong> (inscrito no CNPJ/OAB respectivo) coleta, utiliza, armazena e protege as informações pessoais fornecidas por usuários ao utilizarem nosso site institucional, formulários de contato ou ao contratarem nossos serviços jurídicos.
+                </p>
+
+                <h2 style="font-family: 'Cinzel', serif; color: #0b1329; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px;">2. Coleta de Dados Pessoais</h2>
+                <p>Coletamos apenas os dados estritamente necessários para a finalidade de atendimento e prestação de serviços jurídicos, divididos em:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><strong>Dados fornecidos voluntariamente:</strong> Nome completo, e-mail, telefone/WhatsApp e área de interesse informados através do formulário de contato ou canais de atendimento direto.</li>
+                    <li><strong>Dados de navegação:</strong> Endereço IP, dados de cookies e métricas de acesso coletadas por meio de ferramentas analíticas (como Google Analytics e Google Ads) para otimização da experiência do usuário.</li>
+                </ul>
+
+                <h2 style="font-family: 'Cinzel', serif; color: #0b1329; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px;">3. Finalidade do Tratamento dos Dados</h2>
+                <p>As informações coletadas são utilizadas exclusivamente para:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Retorno a solicitações de contato, dúvidas e agendamentos de reuniões consultivas;</li>
+                    <li>Execução de contratos de prestação de serviços jurídicos e representação legal;</li>
+                    <li>Cumprimento de obrigações legais, regulatórias ou fiscais exigidas pelo Estatuto da Advocacia e da OAB, bem como órgãos governamentais;</li>
+                    <li>Envio de informativos jurídicos e artigos institucionais (quando expressamente autorizado).</li>
+                </ul>
+
+                <h2 style="font-family: 'Cinzel', serif; color: #0b1329; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px;">4. Compartilhamento de Informações</h2>
+                <p>
+                    O escritório Paiva & Correa não comercializa, aluga ou transfere dados pessoais a terceiros. O compartilhamento ocorre estritamente quando necessário para o andamento de processos judiciais, cumprimento de ordens judiciais, autoridades competentes ou parceiros estratégicos estritamente vinculados ao dever de sigilo e confidencialidade.
+                </p>
+
+                <h2 style="font-family: 'Cinzel', serif; color: #0b1329; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px;">5. Segurança da Informação</h2>
+                <p>
+                    Adotamos medidas técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou difusão, em conformidade com os padrões de segurança de mercado e diretrizes da LGPD.
+                </p>
+
+                <h2 style="font-family: 'Cinzel', serif; color: #0b1329; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px;">6. Direitos dos Titulares dos Dados</h2>
+                <p>
+                    Conforme o artigo 18 da Lei Geral de Proteção de Dados (LGPD), o titular dos dados tem direito a obter do escritório, a qualquer momento:
+                </p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Confirmação da existência de tratamento de dados;</li>
+                    <li>Acesso aos dados;</li>
+                    <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+                    <li>Eliminação de dados pessoais tratados com consentimento.</li>
+                </ul>
+
+                <h2 style="font-family: 'Cinzel', serif; color: #0b1329; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px;">7. Contato do Encarregado (DPO)</h2>
+                <p>
+                    Para exercer seus direitos ou esclarecer quaisquer dúvidas referentes a esta Política de Privacidade e ao tratamento de seus dados pessoais, entre em contato conosco através do canal oficial:
+                </p>
+                <p style="background: #f1f5f9; padding: 15px; border-left: 4px solid #c5a880; margin-top: 15px;">
+                    <i class="fa-solid fa-envelope" style="color: #0b1329; margin-right: 8px;"></i> E-mail: <strong>contato@paivaecorrea.com.br</strong><br>
+                    <i class="fa-solid fa-phone" style="color: #0b1329; margin-right: 8px;"></i> Telefone / WhatsApp: <strong>(11) 96191-7900</strong> / <strong>(11) 93286-1852</strong>
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="/" class="logo footer-logo">
+                    <div class="logo-text">
+                        <span class="brand-name">PAIVA & CORREA</span>
+                        <span class="brand-sub">SOCIEDADE DE ADVOGADOS</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#sobre">Escritório</a></li>
+                    <li><a href="/#atuacao">Áreas de Atuação</a></li>
+                    <li><a href="/#publicacoes">Publicações</a></li>
+                    <li><a href="/#equipe">Equipe</a></li>
+                    <li><a href="/#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Siga-nos</h4>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/paiva-correa-sociedade-de-advogados/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/paivaecorrea.adv/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=6158736587758" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>© 2026 <strong>Paiva & Correa Sociedade de Advogados</strong>. Todos os direitos reservados.</p>
+                <p class="disclaimer">A cópia ou reprodução não autorizada de imagens, textos e conteúdos deste site é estritamente proibida.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

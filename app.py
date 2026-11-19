@@ -278,6 +278,10 @@ def detalhe_noticia(slug):
   noticia = Noticia.query.filter_by(slug=slug, publicado=True).first_or_404()
   return render_template("noticia_detalhe.html", noticia=noticia)
 
+@app.route('/politica-de-privacidade')
+def politica_privacidade():
+  return render_template('politica-de-privacidade.html')
+
 
 @app.route("/sitemap.xml")
 def sitemap():
