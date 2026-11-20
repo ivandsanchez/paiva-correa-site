@@ -1,6 +1,7 @@
+from datetime import datetime
 import os
 import re
-from datetime import datetime
+
 from authlib.integrations.flask_client import OAuth
 from flask import (
     Flask,
@@ -10,9 +11,8 @@ from flask import (
     request,
     send_from_directory,
     url_for,
-
 )
-from flask_admin import Admin, AdminIndexView,    expose
+from flask_admin import Admin, AdminIndexView, expose
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.form import ImageUploadField
 from flask_login import (
@@ -24,23 +24,29 @@ from flask_login import (
     logout_user,
 )
 from flask_sqlalchemy import SQLAlchemy
-from slugify import slugify
 from markupsafe import Markup
+from slugify import slugify
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-UPLOAD_FOLDER = os.path.join('static', 'uploads', 'noticias')
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
+# ==========================================
+# CONFIGURAÇÃO DO APP E DIRETÓRIOS
+# ==========================================
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
 app.config["SECRET_KEY"] = "sua-chave-secreta-super-segura-aqui"
 
+# Diretório para upload de imagens de notícias
+basedir = os.path.abspath(os.path.dirname(__file__))
+IMAGE_UPLOAD_PATH = os.path.join(basedir, "static", "uploads", "noticias")
+os.makedirs(IMAGE_UPLOAD_PATH, exist_ok=True)
+
 # ==========================================
 # CONFIGURAÇÃO DO GOOGLE OAUTH
 # ==========================================
-# ⚠️ ATENÇÃO: Você precisará gerar um Client ID e Client Secret no Google Cloud Console
-app.config["GOOGLE_CLIENT_ID"] = "538343301808-00hudic7ov4cdoqnv7ovu6mlltl0lrdb.apps.googleusercontent.com"
+app.config["GOOGLE_CLIENT_ID"] = (
+    "538343301808-00hudic7ov4cdoqnv7ovu6mlltl0lrdb.apps.googleusercontent.com"
+)
 app.config["GOOGLE_CLIENT_SECRET"] = "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"
 
 oauth = OAuth(app)
@@ -54,17 +60,12 @@ google = oauth.register(
     client_kwargs={"scope": "openid email profile"},
 )
 
-# Lista exclusiva de e-mails que possuem permissão de acesso ao Painel Admin
+# Lista exclusiva de e-mails com acesso ao Painel Admin
 EMAILS_PERMITIDOS = [
     "karla@paivaecorrea.com.br",
     "kamila@paivaecorrea.com.br",
-    "ivandigosanchez@gmail.com"
+    "ivandigosanchez@gmail.com",
 ]
-
-# Caminho para upload de imagens
-basedir = os.path.abspath(os.path.dirname(__file__))
-IMAGE_UPLOAD_PATH = os.path.join(basedir, "static", "uploads", "noticias")
-os.makedirs(IMAGE_UPLOAD_PATH, exist_ok=True)
 
 db = SQLAlchemy(app)
 
@@ -84,9 +85,7 @@ class Usuario(db.Model, UserMixin):
 class Noticia(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   titulo = db.Column(db.String(200), nullable=False)
-  slug = db.Column(
-      db.String(250), unique=True, nullable=False
-  )  # O slug é uma coluna real no banco e permite ordenação
+  slug = db.Column(db.String(250), unique=True, nullable=False)
   resumo = db.Column(db.Text, nullable=False)
   conteudo = db.Column(db.Text, nullable=False)
   imagem = db.Column(db.String(250), nullable=True)
@@ -101,11 +100,9 @@ class Noticia(db.Model):
 def formatar_paragrafos(texto):
   if not texto:
     return ""
-  # Se o texto já tiver tags HTML <p> ou <br>, apenas retorna
   if "<p>" in texto or "<br" in texto:
     return Markup(texto)
 
-  # Divide o texto a cada quebra de linha (Enter) e envolve cada bloco em <p>
   paragrafos = [p.strip() for p in re.split(r"\r?\n+", texto) if p.strip()]
   html_formatado = "".join(f"<p>{p}</p>" for p in paragrafos)
   return Markup(html_formatado)
@@ -133,9 +130,7 @@ class SecureModelView(ModelView):
     return redirect(url_for("login_admin"))
 
 
-# Modificamos esta classe para redirecionar direto para a listagem de notícias
 class SecureAdminIndexView(AdminIndexView):
-  
 
   def is_accessible(self):
     return (
@@ -146,7 +141,6 @@ class SecureAdminIndexView(AdminIndexView):
   def inaccessible_callback(self, name, **kwargs):
     return redirect(url_for("login_admin"))
 
-  # Redireciona a página principal do admin (/admin/) direto para /admin/noticia/
   @expose("/")
   def index(self):
     if not self.is_accessible():
@@ -154,10 +148,7 @@ class SecureAdminIndexView(AdminIndexView):
     return redirect(url_for("noticia.index_view"))
 
 
-admin = Admin(
-    app,
-    name="Painel de Notícias",
-    index_view=SecureAdminIndexView())
+admin = Admin(app, name="Painel de Notícias", index_view=SecureAdminIndexView())
 
 
 class NoticiaAdminView(SecureModelView):
@@ -168,6 +159,7 @@ class NoticiaAdminView(SecureModelView):
           "Imagem de Capa",
           base_path=IMAGE_UPLOAD_PATH,
           url_relative_path="uploads/noticias/",
+          allow_overwrite=True,
       )
   }
 
@@ -185,17 +177,16 @@ class NoticiaAdminView(SecureModelView):
       )
     return ""
 
-  # Aplica o formatador na coluna criada
   column_formatters = {"slug": _url_formatter}
-
-  # Dá um nome amigável para a coluna na tabela
   column_labels = {
       "titulo": "Título da Notícia",
       "slug": "URL da Notícia",
       "data_publicacao": "Data de Publicação",
       "publicado": "Publicado",
   }
-  column_sortable_list = ("titulo", "slug","data_publicacao", "publicado")
+  column_sortable_list = ("titulo", "slug", "data_publicacao", "publicado")
+
+
 admin.add_view(
     NoticiaAdminView(Noticia, db.session, name="Publicações e Notícias")
 )
@@ -226,7 +217,6 @@ def google_callback():
     email = user_info.get("email")
     nome = user_info.get("name")
 
-    # VALIDAÇÃO CRUCIAL: Verifica se o e-mail está na lista permitida
     if email in EMAILS_PERMITIDOS:
       user = Usuario.query.filter_by(email=email).first()
       if not user:
@@ -258,7 +248,6 @@ def logout_admin():
 # --- 4. ROTAS PÚBLICAS DO SITE ---
 @app.route("/")
 def home():
-  # Busca as notícias publicadas, ordenadas da mais recente, limitadas a 5
   noticias_recentes = (
       Noticia.query.filter_by(publicado=True)
       .order_by(Noticia.data_publicacao.desc())
@@ -283,9 +272,10 @@ def detalhe_noticia(slug):
   noticia = Noticia.query.filter_by(slug=slug, publicado=True).first_or_404()
   return render_template("noticia_detalhe.html", noticia=noticia)
 
-@app.route('/politica-de-privacidade')
+
+@app.route("/politica-de-privacidade")
 def politica_privacidade():
-  return render_template('politica-de-privacidade.html')
+  return render_template("politica-de-privacidade.html")
 
 
 @app.route("/sitemap.xml")
