@@ -1,6 +1,7 @@
 from datetime import datetime
 import os
 import re
+from werkzeug.utils import secure_filename
 
 from authlib.integrations.flask_client import OAuth
 from flask import (
@@ -25,7 +26,7 @@ from flask_login import (
 from flask_sqlalchemy import SQLAlchemy
 from markupsafe import Markup
 from slugify import slugify
-from wtforms import StringField
+from wtforms import FileField
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 # ==========================================
@@ -153,19 +154,39 @@ class NoticiaAdminView(SecureModelView):
     column_list = ("titulo", "slug", "data_publicacao", "publicado")
     form_excluded_columns = ["slug"]
     
-    # Utiliza campo de texto simples para evitar erros de diretório/upload no Cloud Run
+    # Substitui o campo por um FileField para gerar o botão "Escolher ficheiro"
     form_overrides = {
-        'imagem': StringField
+        'imagem': FileField
     }
     form_args = {
         'imagem': {
-            'label': 'Nome do Arquivo da Imagem (ex: capa.jpg)'
+            'label': 'Imagem de Capa (Arquivo)'
         }
     }
 
     def on_model_change(self, form, model, is_created):
         if model.titulo:
             model.slug = slugify(model.titulo)
+        
+        # Trata o upload do arquivo enviado pelo botão do formulário
+        file_data = request.files.get('imagem')
+        if file_data and file_data.filename:
+            filename = secure_filename(file_data.filename)
+            # Evita nomes duplicados adicionando timestamp
+            timestamp_prefix = datetime.now().strftime("%Y%m%d%H%M%S_")
+            unique_filename = timestamp_prefix + filename
+            
+            file_path = os.path.join(IMAGE_UPLOAD_PATH, unique_filename)
+            file_data.save(file_path)
+            
+            # Salva apenas o nome do arquivo na base de dados
+            model.imagem = unique_filename
+        elif not is_created:
+            # Mantém a imagem anterior se nenhuma nova foi enviada na edição
+            old_model = self.get_one(model.id)
+            if old_model:
+                model.imagem = old_model.imagem
+
         super().on_model_change(form, model, is_created)
 
     def _url_formatter(view, context, model, name):
