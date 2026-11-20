@@ -27,6 +27,7 @@ from flask_sqlalchemy import SQLAlchemy
 from markupsafe import Markup
 from slugify import slugify
 from werkzeug.middleware.proxy_fix import ProxyFix
+from wtforms import StringField
 
 # ==========================================
 # CONFIGURAÇÃO DO APP E DIRETÓRIOS
@@ -151,17 +152,43 @@ class SecureAdminIndexView(AdminIndexView):
 admin = Admin(app, name="Painel de Notícias", index_view=SecureAdminIndexView())
 
 
+
 class NoticiaAdminView(SecureModelView):
-  column_list = ("titulo", "slug", "data_publicacao", "publicado")
-  form_excluded_columns = ["slug"]
-  form_extra_fields = {
-      "imagem": ImageUploadField(
-          "Imagem de Capa",
-          base_path=IMAGE_UPLOAD_PATH,
-          url_relative_path="uploads/noticias/",
-          allow_overwrite=True,
-      )
-  }
+    column_list = ("titulo", "slug", "data_publicacao", "publicado")
+    form_excluded_columns = ["slug"]
+    
+    # Substitui o ImageUploadField por um campo de texto simples para o nome do arquivo
+    form_overrides = {
+        'imagem': StringField
+    }
+    form_args = {
+        'imagem': {
+            'label': 'Nome do Arquivo da Imagem (ex: capa.jpg)'
+        }
+    }
+
+    def on_model_change(self, form, model, is_created):
+        if model.titulo:
+            model.slug = slugify(model.titulo)
+        super().on_model_change(form, model, is_created)
+
+    def _url_formatter(view, context, model, name):
+        if model.slug:
+            link = url_for("detalhe_noticia", slug=model.slug, _external=True)
+            return Markup(
+                f'<a href="{link}" target="_blank" style="color: #2b6cb0;'
+                f' text-decoration: underline;">{link} ↗</a>'
+            )
+        return ""
+
+    column_formatters = {"slug": _url_formatter}
+    column_labels = {
+        "titulo": "Título da Notícia",
+        "slug": "URL da Notícia",
+        "data_publicacao": "Data de Publicação",
+        "publicado": "Publicado",
+    }
+    column_sortable_list = ("titulo", "slug", "data_publicacao", "publicado")
 
   def on_model_change(self, form, model, is_created):
     if model.titulo:
